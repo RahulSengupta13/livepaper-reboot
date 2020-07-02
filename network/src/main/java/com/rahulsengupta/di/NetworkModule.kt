@@ -1,6 +1,7 @@
 package com.rahulsengupta.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.rahulsengupta.network.BuildConfig
 import com.rahulsengupta.network.service.UnsplashService
 import dagger.Module
 import dagger.Provides
@@ -35,9 +36,6 @@ object NetworkModule {
 
     @Provides
     fun provideUnSplashOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
-        val loggingInterceptor = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        }
         val headerAuthorizationInterceptor = Interceptor { chain ->
             val request = chain.request()
             val originalHttpUrl = request.url
@@ -50,7 +48,7 @@ object NetworkModule {
                 .newBuilder()
                 .addHeader(
                     "Authorization",
-                    "Client-ID a52411a039cc119b8612b89c68db9de1c2c2cb0028966615f88f037464ecece9"
+                    "Client-ID ${BuildConfig.LivePaper_Unsplash_AccessKey}"
                 )
                 .url(url)
             chain.proceed(requestBuilder.build())

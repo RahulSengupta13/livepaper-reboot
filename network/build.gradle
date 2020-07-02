@@ -8,6 +8,12 @@ android {
     testOptions {
         unitTests.includeAndroidResources = true
     }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "LivePaper_Unsplash_AccessKey", LivePaper_Unsplash_AccessKey
+        }
+    }
 }
 
 dependencies {
