@@ -1,5 +1,6 @@
 import com.rahulsengupta.buildsrc.AppMetaData
 import com.rahulsengupta.buildsrc.Dependencies
+import com.rahulsengupta.buildsrc.Modules
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
@@ -51,6 +52,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(Modules.network)
+    implementation project(Modules.persistence)
 
     kapt Dependencies.roomCompiler
 
