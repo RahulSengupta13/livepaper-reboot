@@ -1,0 +1,29 @@
+import com.rahulsengupta.buildsrc.Dependencies
+import com.rahulsengupta.buildsrc.GradleTemplates
+
+apply from: "$rootDir/${GradleTemplates.androidLibrary}"
+
+android {
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+}
+
+dependencies {
+    //di
+    kapt Dependencies.androidxHiltCompiler
+    kapt Dependencies.daggerHiltCompiler
+    implementation Dependencies.daggerHiltAndroid
+
+    // Room
+    implementation Dependencies.roomRuntime
+    implementation Dependencies.roomKtx
+
+    implementation Dependencies.core
+    implementation(Dependencies.annotation) { force = true }
+
+    kapt Dependencies.roomCompiler
+
+    implementation Dependencies.coroutinesCore
+    implementation Dependencies.coroutinesAndroid
+}

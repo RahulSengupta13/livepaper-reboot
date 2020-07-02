@@ -1,0 +1,50 @@
+import com.rahulsengupta.buildsrc.Dependencies
+import com.rahulsengupta.buildsrc.AppMetaData
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlinx-serialization'
+
+android {
+    compileSdkVersion AppMetaData.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion AppMetaData.minSdkVersion
+        targetSdkVersion AppMetaData.targetSdkVersion
+        versionCode AppMetaData.versionCode
+        versionName AppMetaData.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation Dependencies.coroutinesCore
+    implementation Dependencies.coroutinesAndroid
+
+    implementation Dependencies.timber
+
+    implementation Dependencies.kotlinStdlib
+    implementation Dependencies.kotlinSerialization
+
+    //testing
+    testImplementation Dependencies.junit
+    androidTestImplementation Dependencies.junitAndroidx
+    androidTestImplementation Dependencies.espresso
+}

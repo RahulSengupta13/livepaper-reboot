@@ -1,2 +1,3 @@
+include ':persistence'
+include ':network'
 include ':app'
-rootProject.name = "LivePaper"

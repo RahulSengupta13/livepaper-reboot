@@ -1,0 +1,70 @@
+import com.rahulsengupta.buildsrc.AppMetaData
+import com.rahulsengupta.buildsrc.Dependencies
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion AppMetaData.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion AppMetaData.minSdkVersion
+        targetSdkVersion AppMetaData.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            testCoverageEnabled true
+        }
+        release {
+            minifyEnabled true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    kapt {
+        correctErrorTypes true
+    }
+}
+
+dependencies {
+    implementation Dependencies.appcompat
+    implementation Dependencies.core
+    implementation Dependencies.constraintlayout
+    implementation Dependencies.material
+    implementation Dependencies.lifecycleExtensions
+
+    implementation Dependencies.kotlinStdlib
+    implementation Dependencies.kotlinSerialization
+    implementation Dependencies.kotlinSerializationConverter
+
+    implementation Dependencies.coroutinesAndroid
+    implementation Dependencies.coroutinesCore
+
+    kapt Dependencies.androidxHiltCompiler
+    kapt Dependencies.daggerHiltCompiler
+    implementation Dependencies.daggerHiltAndroid
+    implementation Dependencies.daggerHiltViewModel
+
+    implementation Dependencies.navigationUi
+    implementation Dependencies.navigationFragment
+
+    implementation Dependencies.timber
+
+    testImplementation Dependencies.junit
+    androidTestImplementation Dependencies.junitAndroidx
+    androidTestImplementation Dependencies.espresso
+}

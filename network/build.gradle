@@ -1,0 +1,26 @@
+import com.rahulsengupta.buildsrc.Dependencies
+import com.rahulsengupta.buildsrc.GradleTemplates
+
+apply plugin: 'kotlinx-serialization'
+apply from: "$rootDir/${GradleTemplates.androidLibrary}"
+
+android {
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+}
+
+dependencies {
+    //di
+    kapt Dependencies.androidxHiltCompiler
+    kapt Dependencies.daggerHiltCompiler
+    implementation Dependencies.daggerHiltAndroid
+
+    // Networking
+    api Dependencies.retrofit
+    api Dependencies.okhttp
+    api Dependencies.okhttpLoggingInterceptor
+    api Dependencies.kotlinSerializationConverter
+
+    implementation Dependencies.kotlinSerialization
+}
