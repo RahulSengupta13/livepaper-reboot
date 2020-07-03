@@ -18,6 +18,13 @@ interface UnsplashService {
         @Query("per_page") perPage: Int
     ): Response<List<FeaturedCollection>>
 
+    @GET("photos")
+    suspend fun getPhotos(
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int,
+        @Query("order_by") orderBy: String
+    ): Response<List<PhotoResponse>>
+
     @GET("/collections/{collectionId}")
     suspend fun getCollectionDetails(
         @Path("collectionId") collectionId: Int

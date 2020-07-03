@@ -2,10 +2,10 @@ package com.rahulsengupta.persistence.converter
 
 import androidx.room.TypeConverter
 import com.rahulsengupta.persistence.LivePaperDatabase.Companion.json
-import com.rahulsengupta.persistence.entity.FeaturedCollectionEntity.CoverPhoto
-import com.rahulsengupta.persistence.entity.FeaturedCollectionEntity.CoverPhoto.Urls
-import com.rahulsengupta.persistence.entity.FeaturedCollectionEntity.User
-import com.rahulsengupta.persistence.entity.FeaturedCollectionEntity.User.UserImage
+import com.rahulsengupta.persistence.entity.common.CoverPhoto
+import com.rahulsengupta.persistence.entity.common.Urls
+import com.rahulsengupta.persistence.entity.common.User
+import com.rahulsengupta.persistence.entity.common.UserImage
 import kotlinx.serialization.ImplicitReflectionSerializer
 import kotlinx.serialization.serializer
 import kotlinx.serialization.stringify

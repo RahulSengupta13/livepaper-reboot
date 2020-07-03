@@ -2,6 +2,8 @@ package com.rahulsengupta.persistence.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.rahulsengupta.persistence.entity.common.CoverPhoto
+import com.rahulsengupta.persistence.entity.common.User
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -19,34 +21,4 @@ data class FeaturedCollectionEntity(
     val publishedAt: String?,
     @SerialName("total_photos")
     val totalPhotos: Int?
-) {
-
-    @Serializable
-    data class CoverPhoto(
-        val urls: Urls?
-    ) {
-
-        @Serializable
-        data class Urls(
-            val regular: String?
-        )
-    }
-
-    @Serializable
-    data class User(
-        val name: String?,
-        @SerialName("profile_image")
-        val image: UserImage?,
-        @SerialName("twitter_username")
-        val twitterUsername: String?,
-        @SerialName("instagram_username")
-        val instagramUsername: String?
-    ) {
-
-        @Serializable
-        data class UserImage(
-            val medium: String?,
-            val large: String?
-        )
-    }
-}
+)

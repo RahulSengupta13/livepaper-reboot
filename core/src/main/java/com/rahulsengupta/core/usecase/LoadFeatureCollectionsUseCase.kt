@@ -5,6 +5,10 @@ import com.rahulsengupta.datasource.UnSplashDataSource
 import com.rahulsengupta.model.response.FeaturedCollection
 import com.rahulsengupta.persistence.dao.FeaturedCollectionDao
 import com.rahulsengupta.persistence.entity.FeaturedCollectionEntity
+import com.rahulsengupta.persistence.entity.common.CoverPhoto
+import com.rahulsengupta.persistence.entity.common.Urls
+import com.rahulsengupta.persistence.entity.common.User
+import com.rahulsengupta.persistence.entity.common.UserImage
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -34,17 +38,17 @@ class LoadFeatureCollectionsUseCaseImpl @Inject constructor(
                 id = it.id,
                 title = it.title ?: "",
                 description = it.description,
-                user = FeaturedCollectionEntity.User(
+                user = User(
                     name = it.user?.name ?: "",
-                    image = FeaturedCollectionEntity.User.UserImage(
+                    image = UserImage(
                         medium = it.user?.image?.medium,
                         large = it.user?.image?.large
                     ),
                     twitterUsername = it.user?.twitterUsername,
                     instagramUsername = it.user?.instagramUsername
                 ),
-                coverPhoto = FeaturedCollectionEntity.CoverPhoto(
-                    urls = FeaturedCollectionEntity.CoverPhoto.Urls(
+                coverPhoto = CoverPhoto(
+                    urls = Urls(
                         regular = it.coverPhoto.urls?.regular
                     )
                 ),
