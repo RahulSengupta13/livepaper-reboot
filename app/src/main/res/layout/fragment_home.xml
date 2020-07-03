@@ -41,11 +41,25 @@
                 android:layout_marginTop="@dimen/standard_bigger_margin"
                 android:text="@string/home_collections_title"
                 android:textAlignment="viewStart"
-                android:textSize="24sp"
+                android:textSize="28sp"
+                android:textStyle="bold"
                 app:flow_horizontalStyle="spread"
                 app:layout_constraintEnd_toStartOf="@id/home_collections_view_all"
                 app:layout_constraintStart_toStartOf="@id/start_guideline"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/home_collections_subtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:text="@string/home_collections_subtitle"
+                android:textAlignment="viewStart"
+                android:textSize="16sp"
+                app:flow_horizontalStyle="spread"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                app:layout_constraintStart_toStartOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/home_collections_title" />
 
             <TextView
                 android:id="@+id/home_collections_view_all"
@@ -56,8 +70,7 @@
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@id/home_collections_title"
                 app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                app:layout_constraintStart_toEndOf="@id/home_collections_title"
-                app:layout_constraintTop_toTopOf="@id/home_collections_title" />
+                app:layout_constraintStart_toEndOf="@id/home_collections_title" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/feature_collection_home_recyclerview"
@@ -70,7 +83,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/home_collections_title"
+                app:layout_constraintTop_toBottomOf="@id/home_collections_subtitle"
                 tools:itemCount="10"
                 tools:listitem="@layout/item_featured_collection_home" />
         </androidx.constraintlayout.widget.ConstraintLayout>
