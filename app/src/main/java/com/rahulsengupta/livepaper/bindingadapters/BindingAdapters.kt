@@ -11,7 +11,7 @@ import com.rahulsengupta.livepaper.activity.ViewState
 fun bottomBarDestination(motionLayout: MotionLayout, viewState: ViewState?) {
     val state = viewState ?: return
     motionLayout.run {
-        val endState = when (viewState) {
+        val endState = when (state) {
             is ViewState.NavigateToHome -> R.id.home_expand
             is ViewState.NavigateToSearch -> R.id.search_expand
             is ViewState.NavigateToFavorites -> R.id.like_expand
