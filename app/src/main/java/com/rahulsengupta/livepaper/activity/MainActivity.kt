@@ -1,7 +1,8 @@
-package com.rahulsengupta.livepaper
+package com.rahulsengupta.livepaper.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.rahulsengupta.livepaper.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setTransition(startState: Int, endState: Int) {
         motion_layout.setTransition(startState, endState)
-        motion_layout.setTransitionDuration(200)
+        motion_layout.setTransitionDuration(250)
         motion_layout.transitionToEnd()
     }
 }

@@ -1,106 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <ConstraintSet android:id="@+id/base">
         <Constraint
             android:id="@+id/iv_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_home"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/tv_home"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
-                app:attributeName="crossfade"
-                app:customFloatValue="0" />
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
         </Constraint>
         <Constraint
             android:id="@+id/iv_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_search"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/tv_home"
-            app:layout_constraintTop_toTopOf="parent">
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/tv_search"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toEndOf="@id/tv_home"
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
-                app:attributeName="crossfade"
-                app:customFloatValue="0" />
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
         </Constraint>
         <Constraint
             android:id="@+id/iv_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_like"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/tv_search"
-            app:layout_constraintTop_toTopOf="parent">
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/tv_like"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toEndOf="@id/tv_search"
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
-                app:attributeName="crossfade"
-                app:customFloatValue="0" />
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
         </Constraint>
         <Constraint
             android:id="@+id/iv_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_profile"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/tv_like"
-            app:layout_constraintTop_toTopOf="parent">
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/tv_profile"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toEndOf="@id/tv_like"
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
-                app:attributeName="crossfade"
-                app:customFloatValue="0" />
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
         </Constraint>
     </ConstraintSet>
 
+    <Transition
+        android:id="@+id/home_expand_transition"
+        motion:constraintSetEnd="@id/home_expand"
+        motion:motionInterpolator="easeIn">
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:framePosition="0"
+                motion:motionTarget="@+id/iv_home">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="0.75" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="0.75" />
+            </KeyAttribute>
+            <KeyAttribute
+                motion:framePosition="50"
+                motion:motionTarget="@+id/iv_home">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="1.25" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="1.25" />
+            </KeyAttribute>
+            <KeyAttribute
+                motion:framePosition="100"
+                motion:motionTarget="@+id/iv_home">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="1.0" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="1.0" />
+            </KeyAttribute>
+        </KeyFrameSet>
+    </Transition>
     <ConstraintSet
         android:id="@+id/home_expand"
-        app:deriveConstraintsFrom="@id/base">
+        motion:deriveConstraintsFrom="@id/base">
         <Constraint
             android:id="@+id/iv_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_home"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/tv_home"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
-                app:attributeName="crossfade"
-                app:customFloatValue="1" />
+                motion:attributeName="crossfade"
+                motion:customFloatValue="1" />
         </Constraint>
         <Constraint
             android:id="@+id/tv_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/iv_search"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/iv_home"
-            app:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/iv_search"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toEndOf="@id/iv_home"
+            motion:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
 
+
+    <Transition
+        android:id="@+id/search_expand_transition"
+        motion:constraintSetEnd="@id/search_expand"
+        motion:motionInterpolator="easeIn">
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:framePosition="0"
+                motion:motionTarget="@+id/iv_search">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="0.75" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="0.75" />
+            </KeyAttribute>
+            <KeyAttribute
+                motion:framePosition="50"
+                motion:motionTarget="@+id/iv_search">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="1.25" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="1.25" />
+            </KeyAttribute>
+            <KeyAttribute
+                motion:framePosition="100"
+                motion:motionTarget="@+id/iv_search">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="1.0" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="1.0" />
+            </KeyAttribute>
+        </KeyFrameSet>
+    </Transition>
     <ConstraintSet
         android:id="@+id/search_expand"
-        app:deriveConstraintsFrom="@id/base">
+        motion:deriveConstraintsFrom="@id/base">
 
         <Constraint
             android:id="@+id/iv_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_search"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/tv_home"
-            app:layout_constraintTop_toTopOf="parent">
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/tv_search"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toEndOf="@id/tv_home"
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
-                app:attributeName="crossfade"
-                app:customFloatValue="1" />
+                motion:attributeName="crossfade"
+                motion:customFloatValue="1" />
         </Constraint>
 
         <Constraint
@@ -108,68 +183,144 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/iv_like"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/iv_search"
-            app:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/iv_like"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toEndOf="@id/iv_search"
+            motion:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
 
+
+    <Transition
+        android:id="@+id/like_expand_transition"
+        motion:constraintSetEnd="@id/like_expand"
+        motion:motionInterpolator="easeIn">
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:framePosition="0"
+                motion:motionTarget="@+id/iv_like">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="0.75" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="0.75" />
+            </KeyAttribute>
+            <KeyAttribute
+                motion:framePosition="50"
+                motion:motionTarget="@+id/iv_like">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="1.25" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="1.25" />
+            </KeyAttribute>
+            <KeyAttribute
+                motion:framePosition="100"
+                motion:motionTarget="@+id/iv_like">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="1.0" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="1.0" />
+            </KeyAttribute>
+        </KeyFrameSet>
+    </Transition>
     <ConstraintSet
         android:id="@+id/like_expand"
-        app:deriveConstraintsFrom="@id/base">
+        motion:deriveConstraintsFrom="@id/base">
         <Constraint
             android:id="@+id/iv_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_like"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/tv_search"
-            app:layout_constraintTop_toTopOf="parent">
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/tv_like"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toEndOf="@id/tv_search"
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
-                app:attributeName="crossfade"
-                app:customFloatValue="1" />
+                motion:attributeName="crossfade"
+                motion:customFloatValue="1" />
         </Constraint>
         <Constraint
             android:id="@+id/tv_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/iv_profile"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/iv_like"
-            app:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/iv_profile"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toEndOf="@id/iv_like"
+            motion:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
 
+
+    <Transition
+        android:id="@+id/profile_expand_transition"
+        motion:constraintSetEnd="@id/profile_expand"
+        motion:motionInterpolator="easeIn">
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:framePosition="0"
+                motion:motionTarget="@+id/iv_profile">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="0.75" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="0.75" />
+            </KeyAttribute>
+            <KeyAttribute
+                motion:framePosition="50"
+                motion:motionTarget="@+id/iv_profile">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="1.25" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="1.25" />
+            </KeyAttribute>
+            <KeyAttribute
+                motion:framePosition="100"
+                motion:motionTarget="@+id/iv_profile">
+                <CustomAttribute
+                    motion:attributeName="scaleX"
+                    motion:customFloatValue="1.0" />
+                <CustomAttribute
+                    motion:attributeName="scaleY"
+                    motion:customFloatValue="1.0" />
+            </KeyAttribute>
+        </KeyFrameSet>
+    </Transition>
     <ConstraintSet
         android:id="@+id/profile_expand"
-        app:deriveConstraintsFrom="@id/base">
+        motion:deriveConstraintsFrom="@id/base">
 
         <Constraint
             android:id="@+id/iv_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_profile"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/tv_like"
-            app:layout_constraintTop_toTopOf="parent">
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/tv_profile"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toEndOf="@id/tv_like"
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
-                app:attributeName="crossfade"
-                app:customFloatValue="1" />
+                motion:attributeName="crossfade"
+                motion:customFloatValue="1" />
         </Constraint>
         <Constraint
             android:id="@+id/tv_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toEndOf="@id/iv_profile"
-            app:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_chainStyle="spread"
+            motion:layout_constraintStart_toEndOf="@id/iv_profile"
+            motion:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
 
 </MotionScene>
