@@ -1,10 +1,14 @@
-package com.rahulsengupta.model.response
+package com.rahulsengupta.persistence.entity
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class FeaturedCollection(
+@Entity(tableName = "FeaturedCollectionEntity")
+data class FeaturedCollectionEntity(
+    @PrimaryKey
     val id: Int,
     val title: String?,
     val description: String?,

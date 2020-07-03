@@ -14,7 +14,7 @@ data class Wallpaper(
     val location: Location?,
     val tags: List<Tag>?,
     val urls: Urls,
-    val user: Collection.User,
+    val user: FeaturedCollection.User,
     val width: Int,
     val height: Int
 ) {

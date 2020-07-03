@@ -1,7 +1,9 @@
-package com.rahulsengupta.persistence
+package com.rahulsengupta.persistence.di
 
 import android.app.Application
 import androidx.room.Room
+import com.rahulsengupta.persistence.DatabaseMeta
+import com.rahulsengupta.persistence.LivePaperDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,4 +32,7 @@ object DatabaseModule {
     @Singleton
     fun provideJson(): Json = Json(JsonConfiguration.Stable)
 
+    @Provides
+    @Singleton
+    fun provideCollectionEntityDao(database: LivePaperDatabase) = database.collectionEntityDao()
 }

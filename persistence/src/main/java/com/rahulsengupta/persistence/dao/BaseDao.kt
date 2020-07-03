@@ -1,9 +1,6 @@
 package com.rahulsengupta.persistence.dao
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Update
+import androidx.room.*
 
 interface BaseDao<T> {
 
@@ -19,6 +16,7 @@ interface BaseDao<T> {
     @Insert
     fun insertAll(items: List<T>): List<Long>
 
+    @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllOrReplace(items: List<T>): List<Long>
 

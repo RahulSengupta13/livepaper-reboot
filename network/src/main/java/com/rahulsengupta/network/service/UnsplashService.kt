@@ -1,9 +1,6 @@
 package com.rahulsengupta.network.service
 
-import com.rahulsengupta.model.response.Collection
-import com.rahulsengupta.model.response.CollectionDetails
-import com.rahulsengupta.model.response.CollectionWallpaper
-import com.rahulsengupta.model.response.Wallpaper
+import com.rahulsengupta.model.response.*
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -15,26 +12,26 @@ interface UnsplashService {
         const val BASE_URL = "https://api.unsplash.com/"
     }
 
-    @GET("collections")
-    fun getCollections(
+    @GET("collections/featured")
+    suspend fun getFeaturedCollections(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): Response<List<Collection>>
+    ): Response<List<FeaturedCollection>>
 
     @GET("/collections/{collectionId}")
-    fun getCollectionDetails(
+    suspend fun getCollectionDetails(
         @Path("collectionId") collectionId: Int
     ): Response<CollectionDetails>
 
     @GET("/collections/{collectionId}/photos")
-    fun getCollectionPhotos(
+    suspend fun getCollectionPhotos(
         @Path("collectionId") collectionId: Int,
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
     ): Response<List<CollectionWallpaper>>
 
     @GET("/photos/{id}/")
-    fun getWallpaper(
+    suspend fun getWallpaper(
         @Path("id") id: String
     ): Response<Wallpaper>
 }

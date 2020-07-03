@@ -62,7 +62,7 @@ object NetworkModule {
 
     @Provides
     fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
-        HttpLoggingInterceptor.Level.BODY
+        HttpLoggingInterceptor.Level.BASIC
     }
 
     @Provides
@@ -72,9 +72,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideConverterFactory(mediaType: MediaType): Converter.Factory =
-        Json(JsonConfiguration(ignoreUnknownKeys = true, isLenient = true)).asConverterFactory(
-            mediaType
-        )
+        Json(JsonConfiguration(ignoreUnknownKeys = true, isLenient = true)).asConverterFactory(mediaType)
 
     private fun <T> provideService(
         baseUrl: String,
