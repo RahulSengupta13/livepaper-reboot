@@ -12,7 +12,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -37,7 +38,7 @@
                 android:id="@+id/home_collections_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/standard_big_margin"
+                android:layout_marginTop="@dimen/standard_bigger_margin"
                 android:text="@string/home_collections_title"
                 android:textAlignment="viewStart"
                 android:textSize="24sp"

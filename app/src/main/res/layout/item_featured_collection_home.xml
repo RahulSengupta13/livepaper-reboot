@@ -32,9 +32,8 @@
 
         <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/item_featured_collection_home_imageview"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            app:loadImage="@{item.imageUrl}"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             app:civ_border="true"
             app:civ_border_color="@color/red"
             app:civ_border_width="1dp"
@@ -43,6 +42,25 @@
             app:civ_shadow_radius="1dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:loadImage="@{item.imageUrl}"
             tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/item_featured_collection_home_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/standard_quarter_margin"
+            android:layout_marginEnd="@dimen/standard_quarter_margin"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{item.title}"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/item_featured_collection_home_imageview"
+            app:layout_constraintEnd_toEndOf="@id/item_featured_collection_home_imageview"
+            app:layout_constraintStart_toStartOf="@id/item_featured_collection_home_imageview"
+            app:layout_constraintTop_toTopOf="@id/item_featured_collection_home_imageview"
+            tools:text="Some long title" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
