@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">LivePaper</string>
+    <string name="splash_title">Splash</string>
+    <string name="home_title">Home</string>
+    <string name="bottom_bar_settings">settings</string>
+    <string name="bottom_bar_favorites">favorites</string>
+    <string name="bottom_bar_search">search</string>
+    <string name="bottom_bar_home">home</string>
 </resources>
