@@ -31,8 +31,4 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideJson(): Json = Json(JsonConfiguration.Stable)
-
-    @Provides
-    @Singleton
-    fun provideCollectionEntityDao(database: LivePaperDatabase) = database.collectionEntityDao()
 }
