@@ -10,9 +10,12 @@
 
     <color name="red">#CF212A</color>
     <color name="dark">#191919</color>
+    <color name="dark_translucent">#AA191919</color>
     <color name="translucent_white">#AAECECEC</color>
     <color name="color_on_secondary">#191919</color>
 
 
     <color name="toolbar_title_color">#ECECEC</color>
+
+    <color name="background_bottom_bar">@color/white</color>
 </resources>
