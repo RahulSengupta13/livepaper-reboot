@@ -19,7 +19,7 @@ object Versions {
     //core
     const val appcompat = "1.1.0-beta01"
     const val annotation = "1.1.0"
-    const val constraintLayout = "2.0.0-beta4"
+    const val constraintLayout = "2.0.0-beta6"
     const val ktx = "1.2.0"
     const val fragment = "1.2.1"
     const val lifecycle = "2.2.0"
