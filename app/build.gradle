@@ -86,6 +86,7 @@ dependencies {
     implementation Dependencies.timber
     implementation Dependencies.circularImageView
     implementation Dependencies.threeTen
+    implementation Dependencies.coil
 
     // Hilt
     kapt Dependencies.androidxHiltCompiler

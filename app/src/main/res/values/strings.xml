@@ -2,6 +2,12 @@
     <string name="app_name">LivePaper</string>
     <string name="splash_title">Splash</string>
     <string name="home_title">Home</string>
+
+    <!--Home-->
+    <string name="home_collections_title">collections</string>
+    <string name="home_collections_view_all">view all</string>
+
+    <!--Bottom Bar-->
     <string name="bottom_bar_settings">settings</string>
     <string name="bottom_bar_favorites">favorites</string>
     <string name="bottom_bar_search">search</string>

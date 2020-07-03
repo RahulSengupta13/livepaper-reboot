@@ -2,6 +2,8 @@ package com.rahulsengupta.livepaper.bindingadapters
 
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.databinding.BindingAdapter
+import coil.api.load
+import com.mikhaellopez.circularimageview.CircularImageView
 import com.rahulsengupta.livepaper.R
 import com.rahulsengupta.livepaper.activity.ViewState
 
@@ -18,5 +20,13 @@ fun bottomBarDestination(motionLayout: MotionLayout, viewState: ViewState?) {
         setTransition(currentState, endState)
         setTransitionDuration(250)
         transitionToEnd()
+    }
+}
+
+
+@BindingAdapter("app:loadImage")
+fun loadImage(circularImageView: CircularImageView, imageUrl: String?) {
+    imageUrl?.let {
+        circularImageView.load(it)
     }
 }

@@ -49,7 +49,7 @@ object Versions {
     const val daggerHiltJetpack = "1.0.0-alpha01"
 
     //image
-    const val glide = "4.9.0"
+    const val coil = "0.11.0"
 
     //testing
     const val junit = "4.12"
@@ -62,7 +62,6 @@ object Dependencies {
 
     //kapt
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
-    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
     //core
     const val appcompat =  "androidx.appcompat:appcompat:${Versions.appcompat}"
@@ -86,7 +85,6 @@ object Dependencies {
     const val roomRuntime =  "androidx.room:room-runtime:${Versions.room}"
     const val pagingRuntime =  "androidx.paging:paging-runtime:${Versions.paging}"
     const val roomKtx =  "androidx.room:room-ktx:${Versions.room}"
-    const val glide =  "com.github.bumptech.glide:glide:${Versions.glide}"
     const val material =  "com.google.android.material:material:${Versions.material}"
     const val kotlinStdlib =  "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}"
@@ -98,7 +96,7 @@ object Dependencies {
     const val timber =  "com.jakewharton.timber:timber:${Versions.timber}"
     const val circularImageView =  "com.mikhaellopez:circularimageview:${Versions.circularImageView}"
     const val threeTen = "com.jakewharton.threetenabp:threetenabp:${Versions.threeTen}"
-
+    const val coil = "io.coil-kt:coil:${Versions.coil}"
 
     // Dagger
     const val daggerHiltAndroid = "com.google.dagger:hilt-android:${Versions.daggerHilt}"

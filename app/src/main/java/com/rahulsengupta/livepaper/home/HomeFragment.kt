@@ -16,11 +16,18 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentHomeBinding.inflate(inflater).apply {
-            lifecycleOwner = viewLifecycleOwner
-            viewModel = viewModel
-        }
+        binding = FragmentHomeBinding.inflate(inflater)
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.featureCollectionHomeRecyclerview.run {
+            adapter = FeaturedCollectionAdapter()
+        }
     }
 
     override fun onResume() {
