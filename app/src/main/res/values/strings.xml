@@ -3,6 +3,8 @@
     <string name="splash_title">splash</string>
     <string name="home_title">home</string>
     <string name="search_title">search</string>
+    <string name="favorites_title">favorites</string>
+    <string name="settings_title">settings</string>
 
     <!--Home-->
     <string name="home_collections_title">collections</string>
