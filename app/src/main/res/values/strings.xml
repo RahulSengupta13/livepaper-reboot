@@ -5,6 +5,8 @@
     <string name="search_title">search</string>
     <string name="favorites_title">favorites</string>
     <string name="settings_title">settings</string>
+    <string name="settings_explore_title">explore</string>
+    <string name="settings_photos_title">popular photos</string>
 
     <!--Home-->
     <string name="home_collections_title">collections</string>
