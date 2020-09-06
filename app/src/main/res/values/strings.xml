@@ -7,7 +7,7 @@
     <string name="home_collections_title">collections</string>
     <string name="home_collections_subtitle">most popular</string>
     <string name="home_collections_view_all">view all</string>
-    <string name="home_popular_photos_title">popular photos</string>
+    <string name="home_popular_photos_title">new photos</string>
 
     <!--Bottom Bar-->
     <string name="bottom_bar_settings">settings</string>

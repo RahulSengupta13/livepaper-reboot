@@ -4,6 +4,8 @@ import android.widget.ImageView
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.databinding.BindingAdapter
 import coil.api.load
+import coil.transform.BlurTransformation
+import coil.transform.CircleCropTransformation
 import com.mikhaellopez.circularimageview.CircularImageView
 import com.rahulsengupta.livepaper.R
 import com.rahulsengupta.livepaper.activity.ViewState
@@ -35,6 +37,8 @@ fun loadImage(circularImageView: CircularImageView, imageUrl: String?) {
 @BindingAdapter("app:loadImage")
 fun loadImage(imageView: ImageView, imageUrl: String?) {
     imageUrl?.let {
-        imageView.load(it)
+        imageView.load(it) {
+            crossfade(true)
+        }
     }
 }

@@ -18,6 +18,6 @@ class LoadPopularPhotosUseCase @Inject constructor(
 
     companion object {
         const val PAGE_SIZE = 10
-        const val ORDER_BY = "popular"
+        const val ORDER_BY = "latest"
     }
 }
