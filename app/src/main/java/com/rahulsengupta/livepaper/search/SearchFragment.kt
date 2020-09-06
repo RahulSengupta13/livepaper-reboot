@@ -6,8 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
+import com.rahulsengupta.core.ui.SliderTransformer
 import com.rahulsengupta.livepaper.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -22,5 +27,23 @@ class SearchFragment : Fragment() {
             it.lifecycleOwner = viewLifecycleOwner
         }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val adapter = SearchPopularPhotosAdapter()
+        binding.popularPhotosViewPager.apply {
+            this.adapter = adapter
+            (getChildAt(0) as? RecyclerView)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+            offscreenPageLimit = 4
+            setPageTransformer(SliderTransformer(3))
+        }
+
+        lifecycleScope.launch {
+            viewModel.popularPhotoFlow.collectLatest {
+                adapter.submitData(it)
+            }
+        }
     }
 }

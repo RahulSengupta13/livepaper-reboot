@@ -9,13 +9,12 @@ import androidx.paging.cachedIn
 import androidx.paging.map
 import com.rahulsengupta.core.coroutine.CoroutinesDispatcher
 import com.rahulsengupta.core.usecase.LoadFeatureCollectionsUseCase
-import com.rahulsengupta.core.usecase.LoadPopularPhotosUseCase
+import com.rahulsengupta.core.usecase.LoadPhotosUseCase
 import com.rahulsengupta.livepaper.home.model.FeaturedCollectionItem
-import com.rahulsengupta.livepaper.home.model.PopularPhotoItem
+import com.rahulsengupta.livepaper.home.model.PhotoItem
 import com.rahulsengupta.persistence.entity.FeaturedCollectionEntity
 import com.rahulsengupta.persistence.usecase.GetFeaturedCollectionUseCase
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
@@ -23,17 +22,17 @@ class HomeViewModel @ViewModelInject constructor(
     private val loadFeatureCollections: LoadFeatureCollectionsUseCase,
     private val getFeaturedCollections: GetFeaturedCollectionUseCase,
     private val dispatcher: CoroutinesDispatcher,
-    loadPopularPhotosUseCase: LoadPopularPhotosUseCase
+    loadPhotosUseCase: LoadPhotosUseCase
 ) : ViewModel() {
 
     private val _featuredCollections = MutableLiveData<List<FeaturedCollectionItem>>()
     val featuredCollections: LiveData<List<FeaturedCollectionItem>>
         get() = _featuredCollections
 
-    val popularPhotoFlow = loadPopularPhotosUseCase.popularPhotoFlow
+    val popularPhotoFlow = loadPhotosUseCase.latestPhotoFlow
         .map { pagingData ->
             pagingData.map {
-                PopularPhotoItem(
+                PhotoItem(
                     id = it.id,
                     imageUrl = it.urls?.regular ?: ""
                 )

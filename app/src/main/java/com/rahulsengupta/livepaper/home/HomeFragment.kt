@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     private val viewModel: HomeViewModel by viewModels()
 
-    private val popularPhotosAdapter = PopularPhotosAdapter()
+    private val latestPhotosAdapter = HomeLatestPhotosAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,12 +47,12 @@ class HomeFragment : Fragment() {
                     gapStrategy = GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
             }
             isNestedScrollingEnabled = true
-            adapter = popularPhotosAdapter
+            adapter = latestPhotosAdapter
         }
 
         lifecycleScope.launch {
             viewModel.popularPhotoFlow.collectLatest {
-                popularPhotosAdapter.submitData(it)
+                latestPhotosAdapter.submitData(it)
             }
         }
     }

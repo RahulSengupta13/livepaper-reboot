@@ -1,12 +1,11 @@
 package com.rahulsengupta.core.paging
 
 import androidx.paging.PagingSource
-import com.rahulsengupta.core.sharedprefs.LivePaperSharedPrefs
-import com.rahulsengupta.core.usecase.LoadPopularPhotosUseCase
+import com.rahulsengupta.core.usecase.LoadPhotosUseCase
 import com.rahulsengupta.datasource.UnSplashDataSource
 import com.rahulsengupta.model.response.PhotoResponse
 
-class PopularPhotosPagingSource(
+class PhotosPagingSource(
     private val dataSource: UnSplashDataSource,
     private val orderBy: String
 ) : PagingSource<Int, PhotoResponse>() {
@@ -17,7 +16,7 @@ class PopularPhotosPagingSource(
 
             val response = dataSource.getPhotos(
                 page = pageToLoad,
-                pageSize = LoadPopularPhotosUseCase.PAGE_SIZE,
+                pageSize = LoadPhotosUseCase.PAGE_SIZE,
                 orderBy = orderBy
             )
             val data = response.data ?: return LoadResult.Error(Exception())
