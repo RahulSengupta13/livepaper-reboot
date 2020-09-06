@@ -13,10 +13,9 @@ interface BaseDao<T> {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertOrIgnore(item: T): Long
 
-    @Insert
-    fun insertAll(items: List<T>): List<Long>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(items: List<T>)
 
-    @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllOrReplace(items: List<T>): List<Long>
 

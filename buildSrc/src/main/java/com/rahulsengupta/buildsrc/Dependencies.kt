@@ -12,9 +12,9 @@ object AppMetaData {
 
 object Versions {
     // Application
-    const val kotlin = "1.3.72"
-    const val kotlinSerialization = "0.20.0"
-    const val gradle = "4.1.0-alpha10"
+    const val kotlin = "1.4.0"
+    const val kotlinSerialization = "1.0.0-RC"
+    const val gradle = "4.1.0-rc02"
 
     //core
     const val appcompat = "1.1.0-beta01"
@@ -36,13 +36,13 @@ object Versions {
     const val swipeRefresh = "1.1.0-rc01"
 
     //database
-    const val room = "2.2.3"
-    const val paging = "2.1.1"
+    const val room = "2.3.0-alpha02"
+    const val paging = "3.0.0-alpha06"
 
     //networking
-    const val retrofit = "2.8.1"
-    const val okhttp = "4.5.0"
-    const val kotlinSerializationConverter = "0.5.0"
+    const val retrofit = "2.9.0"
+    const val okhttp = "4.8.1"
+    const val kotlinSerializationConverter = "0.7.0"
 
     //di
     const val daggerHilt = "2.28-alpha"
@@ -83,11 +83,11 @@ object Dependencies {
     const val swipeRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefresh}"
 
     const val roomRuntime =  "androidx.room:room-runtime:${Versions.room}"
-    const val pagingRuntime =  "androidx.paging:paging-runtime:${Versions.paging}"
+    const val pagingRuntime =  "androidx.paging:paging-runtime-ktx:${Versions.paging}"
     const val roomKtx =  "androidx.room:room-ktx:${Versions.room}"
     const val material =  "com.google.android.material:material:${Versions.material}"
     const val kotlinStdlib =  "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
-    const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.kotlinSerialization}"
+    const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.kotlinSerialization}"
     const val coroutinesAndroid =  "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val coroutinesCore =  "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val preference =  "androidx.preference:preference:${Versions.preference}"

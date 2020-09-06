@@ -9,7 +9,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
@@ -30,5 +29,5 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideJson(): Json = Json(JsonConfiguration.Stable)
+    fun provideJson(): Json = Json {  }
 }

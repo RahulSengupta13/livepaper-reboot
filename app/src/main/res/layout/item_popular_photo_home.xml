@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.rahulsengupta.livepaper.home.model.PopularPhotoItem" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:elevation="4dp"
+        app:cardCornerRadius="@dimen/standard_quarter_margin"
+        app:cardUseCompatPadding="true">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/item_popular_photo_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:loadImage="@{item.imageUrl}"
+                tools:src="@tools:sample/backgrounds/scenic" />
+    </com.google.android.material.card.MaterialCardView>
+</layout>

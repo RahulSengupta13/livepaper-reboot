@@ -49,7 +49,8 @@ class LoadFeatureCollectionsUseCaseImpl @Inject constructor(
                 ),
                 coverPhoto = CoverPhoto(
                     urls = Urls(
-                        regular = it.coverPhoto.urls?.regular
+                        regular = it.coverPhoto.urls?.regular,
+                        small = it.coverPhoto.urls?.small
                     )
                 ),
                 publishedAt = it.publishedAt,

@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PhotoResponse(
     val id: String,
-    val title: String?,
+    val title: String? = "",
     val description: String?,
     val user: User?,
     @SerialName("created_at")

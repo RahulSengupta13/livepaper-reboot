@@ -18,6 +18,7 @@ dependencies {
     // Room
     implementation Dependencies.roomRuntime
     implementation Dependencies.roomKtx
+    implementation Dependencies.pagingRuntime
 
     implementation Dependencies.core
     implementation(Dependencies.annotation) { force = true }

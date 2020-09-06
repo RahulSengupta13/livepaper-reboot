@@ -1,3 +1,4 @@
+import com.rahulsengupta.buildsrc.Dependencies
 import com.rahulsengupta.buildsrc.GradleTemplates
 import com.rahulsengupta.buildsrc.Modules
 
@@ -12,4 +13,10 @@ android {
 dependencies {
     implementation project(Modules.network)
     implementation project(Modules.persistence)
+
+    kapt Dependencies.roomCompiler
+    implementation Dependencies.roomRuntime
+    implementation Dependencies.roomKtx
+
+    implementation Dependencies.pagingRuntime
 }

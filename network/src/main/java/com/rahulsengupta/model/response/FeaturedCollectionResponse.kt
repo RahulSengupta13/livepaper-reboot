@@ -24,7 +24,8 @@ data class FeaturedCollection(
 
         @Serializable
         data class Urls(
-            val regular: String?
+            val regular: String?,
+            val small: String?
         )
     }
 

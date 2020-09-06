@@ -12,7 +12,4 @@ object DaoModule {
 
     @Provides
     fun provideFeaturedCollectionDao(database: LivePaperDatabase) = database.collectionEntityDao()
-
-    @Provides
-    fun providePopularPhotoDao(database: LivePaperDatabase) = database.popularPhotoDao()
 }

@@ -6,41 +6,31 @@ import com.rahulsengupta.persistence.entity.common.CoverPhoto
 import com.rahulsengupta.persistence.entity.common.Urls
 import com.rahulsengupta.persistence.entity.common.User
 import com.rahulsengupta.persistence.entity.common.UserImage
-import kotlinx.serialization.ImplicitReflectionSerializer
 import kotlinx.serialization.serializer
-import kotlinx.serialization.stringify
 
 class DbTypeConverters {
 
-    @ImplicitReflectionSerializer
     @TypeConverter
-    fun fromUrls(data: Urls) = json.stringify(data)
+    fun fromUrls(data: Urls) = json.encodeToString(Urls.serializer(), data)
 
-    @ImplicitReflectionSerializer
     @TypeConverter
-    fun toUrls(value: String): Urls = json.parse(serializer(), value)
+    fun toUrls(value: String): Urls = json.decodeFromString(serializer(), value)
 
-    @ImplicitReflectionSerializer
     @TypeConverter
-    fun fromCoverPhoto(data: CoverPhoto) = json.stringify(data)
+    fun fromCoverPhoto(data: CoverPhoto) = json.encodeToString(CoverPhoto.serializer(), data)
 
-    @ImplicitReflectionSerializer
     @TypeConverter
-    fun toCoverPhoto(value: String): CoverPhoto = json.parse(serializer(), value)
+    fun toCoverPhoto(value: String): CoverPhoto = json.decodeFromString(serializer(), value)
 
-    @ImplicitReflectionSerializer
     @TypeConverter
-    fun fromUser(data: User) = json.stringify(data)
+    fun fromUser(data: User) = json.encodeToString(User.serializer(), data)
 
-    @ImplicitReflectionSerializer
     @TypeConverter
-    fun toUser(value: String): User = json.parse(serializer(), value)
+    fun toUser(value: String): User = json.decodeFromString(serializer(), value)
 
-    @ImplicitReflectionSerializer
     @TypeConverter
-    fun fromUserImage(data: UserImage) = json.stringify(data)
+    fun fromUserImage(data: UserImage) = json.encodeToString(UserImage.serializer(), data)
 
-    @ImplicitReflectionSerializer
     @TypeConverter
-    fun toUserImage(value: String): UserImage = json.parse(serializer(), value)
+    fun toUserImage(value: String): UserImage = json.decodeFromString(serializer(), value)
 }

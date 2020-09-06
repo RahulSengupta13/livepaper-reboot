@@ -71,8 +71,13 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideConverterFactory(mediaType: MediaType): Converter.Factory =
-        Json(JsonConfiguration(ignoreUnknownKeys = true, isLenient = true)).asConverterFactory(mediaType)
+    fun provideConverterFactory(mediaType: MediaType): Converter.Factory {
+        return Json {
+            ignoreUnknownKeys = true
+            isLenient = true
+            prettyPrint = true
+        }.asConverterFactory(mediaType)
+    }
 
     private fun <T> provideService(
         baseUrl: String,

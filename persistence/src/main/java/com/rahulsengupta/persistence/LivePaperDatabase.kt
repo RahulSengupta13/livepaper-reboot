@@ -5,9 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.rahulsengupta.persistence.converter.DbTypeConverters
 import com.rahulsengupta.persistence.dao.FeaturedCollectionDao
-import com.rahulsengupta.persistence.dao.PopularPhotoDao
 import com.rahulsengupta.persistence.entity.FeaturedCollectionEntity
-import com.rahulsengupta.persistence.entity.PopularPhotoEntity
 import kotlinx.serialization.json.Json
 
 object DatabaseMeta {
@@ -19,7 +17,7 @@ object DatabaseMeta {
 @Database(
     version = DatabaseMeta.VERSION,
     exportSchema = false,
-    entities = [FeaturedCollectionEntity::class, PopularPhotoEntity::class]
+    entities = [FeaturedCollectionEntity::class]
 )
 abstract class LivePaperDatabase : RoomDatabase() {
 
@@ -28,5 +26,4 @@ abstract class LivePaperDatabase : RoomDatabase() {
     }
 
     abstract fun collectionEntityDao(): FeaturedCollectionDao
-    abstract fun popularPhotoDao(): PopularPhotoDao
 }

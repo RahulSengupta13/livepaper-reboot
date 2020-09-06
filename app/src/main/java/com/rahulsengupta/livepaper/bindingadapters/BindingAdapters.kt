@@ -1,5 +1,6 @@
 package com.rahulsengupta.livepaper.bindingadapters
 
+import android.widget.ImageView
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.databinding.BindingAdapter
 import coil.api.load
@@ -28,5 +29,12 @@ fun bottomBarDestination(motionLayout: MotionLayout, viewState: ViewState?) {
 fun loadImage(circularImageView: CircularImageView, imageUrl: String?) {
     imageUrl?.let {
         circularImageView.load(it)
+    }
+}
+
+@BindingAdapter("app:loadImage")
+fun loadImage(imageView: ImageView, imageUrl: String?) {
+    imageUrl?.let {
+        imageView.load(it)
     }
 }
