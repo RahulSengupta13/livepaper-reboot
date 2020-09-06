@@ -7,5 +7,5 @@ import com.rahulsengupta.livepaper.home.model.FeaturedCollectionItem
 @BindingAdapter("app:featuredCollections")
 fun featuredCollections(recycler: RecyclerView, list: List<FeaturedCollectionItem>?) {
     val featuredCollections = list ?: return
-    (recycler.adapter as FeaturedCollectionAdapter).updateList(featuredCollections)
+    (recycler.adapter as FeaturedCollectionAdapter).submitList(featuredCollections)
 }

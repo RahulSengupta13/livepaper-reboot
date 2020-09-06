@@ -2,31 +2,26 @@ package com.rahulsengupta.livepaper.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.rahulsengupta.livepaper.databinding.ItemFeaturedCollectionHomeBinding
 import com.rahulsengupta.livepaper.home.model.FeaturedCollectionItem
 
-class FeaturedCollectionAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
-    private var featuredCollections: List<FeaturedCollectionItem> = emptyList()
+class FeaturedCollectionAdapter : ListAdapter<FeaturedCollectionItem, RecyclerView.ViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ItemFeaturedCollectionHomeBinding.inflate(LayoutInflater.from(parent.context))
         return FeaturedItemViewHolder(binding)
     }
 
-    override fun getItemCount() = featuredCollections.size
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as FeaturedItemViewHolder).bind(featuredCollections[position])
+        (holder as FeaturedItemViewHolder).bind(getItem(position))
     }
 
-    fun updateList(list: List<FeaturedCollectionItem>) {
-        featuredCollections = list
-        notifyDataSetChanged()
-    }
-
-    inner class FeaturedItemViewHolder(val binding: ItemFeaturedCollectionHomeBinding) : RecyclerView.ViewHolder(binding.root) {
+    /*ViewHolder*/
+    class FeaturedItemViewHolder(val binding: ItemFeaturedCollectionHomeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: FeaturedCollectionItem) {
             binding.run {
@@ -34,5 +29,17 @@ class FeaturedCollectionAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
                 executePendingBindings()
             }
         }
+    }
+
+    object DiffCallback : DiffUtil.ItemCallback<FeaturedCollectionItem>() {
+        override fun areItemsTheSame(
+            oldItem: FeaturedCollectionItem,
+            newItem: FeaturedCollectionItem
+        ) = oldItem.title == newItem.title
+
+        override fun areContentsTheSame(
+            oldItem: FeaturedCollectionItem,
+            newItem: FeaturedCollectionItem
+        ) = oldItem == newItem
     }
 }
