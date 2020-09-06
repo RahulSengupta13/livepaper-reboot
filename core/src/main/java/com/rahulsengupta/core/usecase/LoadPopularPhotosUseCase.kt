@@ -2,22 +2,19 @@ package com.rahulsengupta.core.usecase
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import com.rahulsengupta.core.coroutine.CoroutinesDispatcher
 import com.rahulsengupta.core.paging.PopularPhotosPagingSource
 import com.rahulsengupta.datasource.UnSplashDataSource
-import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class LoadPopularPhotosUseCase @Inject constructor(
-    private val dataSource: UnSplashDataSource,
-    private val dispatcher: CoroutinesDispatcher
+    private val dataSource: UnSplashDataSource
 ) {
 
-    fun getPopularPhotosStream() = Pager(
-        config = PagingConfig(pageSize = PAGE_SIZE)
-    ) {
+    val popularPhotoFlow = Pager(PagingConfig(pageSize = PAGE_SIZE)) {
         PopularPhotosPagingSource(dataSource, ORDER_BY)
-    }.flow.flowOn(dispatcher.io)
+    }.flow
 
     companion object {
         const val PAGE_SIZE = 10
