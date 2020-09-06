@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL).apply {
                     gapStrategy = GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
             }
-            isNestedScrollingEnabled = false
+            isNestedScrollingEnabled = true
             adapter = popularPhotosAdapter
         }
 

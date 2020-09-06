@@ -10,94 +10,119 @@
             type="com.rahulsengupta.livepaper.home.HomeViewModel" />
     </data>
 
-    <ScrollView
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".activity.MainActivity">
+            android:background="@android:color/transparent">
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/start_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="@dimen/standard_margin" />
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/end_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_end="@dimen/standard_margin" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/home_collections_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/standard_bigger_margin"
-                android:text="@string/home_collections_title"
-                android:textAlignment="viewStart"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:flow_horizontalStyle="spread"
-                app:layout_constraintEnd_toStartOf="@id/home_collections_view_all"
-                app:layout_constraintStart_toStartOf="@id/start_guideline"
-                app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/start_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/standard_margin" />
 
-            <TextView
-                android:id="@+id/home_collections_subtitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/standard_margin"
-                android:text="@string/home_collections_subtitle"
-                android:textAlignment="viewStart"
-                android:textSize="16sp"
-                app:flow_horizontalStyle="spread"
-                app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                app:layout_constraintStart_toStartOf="@id/start_guideline"
-                app:layout_constraintTop_toBottomOf="@id/home_collections_title" />
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/end_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/standard_margin" />
 
-            <TextView
-                android:id="@+id/home_collections_view_all"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/home_collections_view_all"
-                android:textAlignment="viewEnd"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@id/home_collections_title"
-                app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                app:layout_constraintStart_toEndOf="@id/home_collections_title" />
+                    <TextView
+                        android:id="@+id/home_collections_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/standard_bigger_margin"
+                        android:text="@string/home_collections_title"
+                        android:textAlignment="viewStart"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        app:flow_horizontalStyle="spread"
+                        app:layout_constraintEnd_toStartOf="@id/home_collections_view_all"
+                        app:layout_constraintStart_toStartOf="@id/start_guideline"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/feature_collection_home_recyclerview"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/standard_half_margin"
-                android:orientation="horizontal"
-                android:overScrollMode="never"
-                app:featuredCollections="@{viewModel.featuredCollections}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/home_collections_subtitle"
-                tools:itemCount="10"
-                tools:listitem="@layout/item_featured_collection_home" />
+                    <TextView
+                        android:id="@+id/home_collections_subtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/standard_margin"
+                        android:text="@string/home_collections_subtitle"
+                        android:textAlignment="viewStart"
+                        android:textSize="16sp"
+                        app:flow_horizontalStyle="spread"
+                        app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                        app:layout_constraintStart_toStartOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/home_collections_title" />
+
+                    <TextView
+                        android:id="@+id/home_collections_view_all"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_collections_view_all"
+                        android:textAlignment="viewEnd"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/home_collections_title"
+                        app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/home_collections_title" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/feature_collection_home_recyclerview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/standard_half_margin"
+                        android:orientation="horizontal"
+                        android:overScrollMode="never"
+                        app:featuredCollections="@{viewModel.featuredCollections}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/home_collections_subtitle"
+                        tools:itemCount="10"
+                        tools:listitem="@layout/item_featured_collection_home" />
+
+                    <TextView
+                        android:id="@+id/home_popular_photos_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/standard_margin"
+                        android:text="@string/home_popular_photos_title"
+                        android:textAlignment="viewStart"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                        app:layout_constraintStart_toStartOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/feature_collection_home_recyclerview" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.rahulsengupta.core.ui.SmartNestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/feature_popular_photo_recyclerview"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="@dimen/standard_margin"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/feature_collection_home_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 tools:itemCount="3"
                 tools:listitem="@layout/item_popular_photo_home" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+        </com.rahulsengupta.core.ui.SmartNestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
