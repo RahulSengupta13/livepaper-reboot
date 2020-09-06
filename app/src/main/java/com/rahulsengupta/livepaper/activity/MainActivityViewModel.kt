@@ -7,34 +7,34 @@ import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel @ViewModelInject constructor() : ViewModel() {
 
-    private val _viewState = MutableLiveData<ViewState>()
-    val viewState: LiveData<ViewState>
-        get() = _viewState
+    private val _viewEffect = MutableLiveData<ViewEffect>()
+    val viewEffect: LiveData<ViewEffect>
+        get() = _viewEffect
 
     init {
-        _viewState.value = ViewState.NavigateToHome
+        _viewEffect.value = ViewEffect.NavigateToHome
     }
 
     fun onHomeClicked() {
-        _viewState.value = ViewState.NavigateToHome
+        _viewEffect.value = ViewEffect.NavigateToHome
     }
 
     fun onSearchClicked() {
-        _viewState.value = ViewState.NavigateToSearch
+        _viewEffect.value = ViewEffect.NavigateToSearch
     }
 
     fun onFavoritesClicked() {
-        _viewState.value = ViewState.NavigateToFavorites
+        _viewEffect.value = ViewEffect.NavigateToFavorites
     }
 
     fun onSettingsClicked() {
-        _viewState.value = ViewState.NavigateToSettings
+        _viewEffect.value = ViewEffect.NavigateToSettings
     }
 }
 
-sealed class ViewState {
-    object NavigateToHome : ViewState()
-    object NavigateToSearch : ViewState()
-    object NavigateToFavorites : ViewState()
-    object NavigateToSettings : ViewState()
+sealed class ViewEffect {
+    object NavigateToHome : ViewEffect()
+    object NavigateToSearch : ViewEffect()
+    object NavigateToFavorites : ViewEffect()
+    object NavigateToSettings : ViewEffect()
 }

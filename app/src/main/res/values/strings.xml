@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">LivePaper</string>
-    <string name="splash_title">Splash</string>
-    <string name="home_title">Home</string>
+    <string name="splash_title">splash</string>
+    <string name="home_title">home</string>
+    <string name="search_title">search</string>
 
     <!--Home-->
     <string name="home_collections_title">collections</string>

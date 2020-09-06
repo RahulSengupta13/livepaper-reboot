@@ -23,7 +23,7 @@ object Versions {
     const val ktx = "1.2.0"
     const val fragment = "1.2.1"
     const val lifecycle = "2.2.0"
-    const val navigation = "2.2.0"
+    const val navigation = "2.3.0"
     const val recyclerView = "1.2.0-alpha05"
     const val material = "1.2.0-alpha05"
     const val coroutines = "1.3.3"

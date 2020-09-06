@@ -42,9 +42,9 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <androidx.constraintlayout.motion.widget.MotionLayout
+                android:id="@+id/bottom_bar_motion_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:bottomBarDestination="@{viewModel.viewState}"
                 app:layoutDescription="@xml/bottom_bar_scene">
 
                 <androidx.constraintlayout.utils.widget.ImageFilterView
