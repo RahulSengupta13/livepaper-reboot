@@ -21,7 +21,11 @@ class SearchFragment : Fragment() {
 
     private val viewModel by viewModels<SearchViewModel>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentSearchBinding.inflate(inflater, container, false).also {
             it.viewModel = viewModel
             it.lifecycleOwner = viewLifecycleOwner
@@ -37,8 +41,19 @@ class SearchFragment : Fragment() {
             this.adapter = adapter
             (getChildAt(0) as? RecyclerView)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
             offscreenPageLimit = 4
-            setPageTransformer(SliderTransformer(3))
+            setPageTransformer(SliderTransformer(4))
+
+//            val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.view_pager_page_margin_small)
+//            setPageTransformer(
+//                CompositePageTransformer().apply {
+//                    addTransformer(MarginPageTransformer(pageMarginPx))
+//                    addTransformer(ScaleTransformer())
+//                }
+//            )
         }
+
+
+        binding.viewpagerPagerIndicator.attachToViewPager2(binding.popularPhotosViewPager)
 
         lifecycleScope.launch {
             viewModel.popularPhotoFlow.collectLatest {

@@ -3,7 +3,7 @@ package com.rahulsengupta.core.ui
 import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.viewpager2.widget.ViewPager2
-import java.lang.Math.abs
+import kotlin.math.abs
 
 class SliderTransformer(private val offscreenPageLimit: Int) : ViewPager2.PageTransformer {
 

@@ -98,4 +98,6 @@ dependencies {
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.junitAndroidx
     androidTestImplementation Dependencies.espresso
+
+    implementation 'com.github.rbro112:Android-Indefinite-Pager-Indicator:1.3'
 }
