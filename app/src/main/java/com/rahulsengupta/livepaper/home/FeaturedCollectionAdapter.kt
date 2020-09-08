@@ -20,9 +20,7 @@ class FeaturedCollectionAdapter : ListAdapter<FeaturedCollectionItem, RecyclerVi
     }
 
     /*ViewHolder*/
-    class FeaturedItemViewHolder(val binding: ItemFeaturedCollectionHomeBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
+    class FeaturedItemViewHolder(val binding: ItemFeaturedCollectionHomeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: FeaturedCollectionItem) {
             binding.run {
                 this.item = item

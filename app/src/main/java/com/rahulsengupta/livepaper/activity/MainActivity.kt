@@ -6,12 +6,11 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import com.rahulsengupta.livepaper.R
-import com.rahulsengupta.livepaper.activity.ViewEffect.*
+import com.rahulsengupta.livepaper.activity.Command.NavigateToIndex
 import com.rahulsengupta.livepaper.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,12 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        private val TOP_LEVEL_DESTINATIONS = setOf(
-            R.id.homeFragment,
-            R.id.searchFragment,
-            R.id.favoritesFragment,
-            R.id.settingsFragment
-        )
+        private val TOP_LEVEL_DESTINATIONS = setOf(R.id.mainFragment)
     }
 
     private lateinit var navController: NavController
@@ -54,66 +48,21 @@ class MainActivity : AppCompatActivity() {
             } else {
                 View.GONE
             }
-            syncBottomBar()
         }
 
-        viewModel.viewEffect.observe(this, Observer {
+        viewModel.command.observe(this, {
             when (it) {
-                is NavigateToHome -> navigateToHome()
-                is NavigateToSearch -> navigateToSearch()
-                is NavigateToFavorites -> navigateToFavorites()
-                is NavigateToSettings -> navigateToSettings()
-                else -> Unit
+                is NavigateToIndex -> syncBottomBar(it.index)
             }
         })
     }
 
-    override fun onBackPressed() {
-        if (currentNavId == R.id.homeFragment) finish() else navController.navigateUp()
-    }
-
-    private fun navigateToSearch() {
-        try {
-            val backStackEntry = navController.getBackStackEntry(R.id.searchFragment)
-            navController.popBackStack(backStackEntry.destination.id, false)
-        } catch (e: Exception) {
-            navController.navigate(R.id.action_global_searchFragment)
-        }
-    }
-
-    private fun navigateToHome() {
-        try {
-            val backStackEntry = navController.getBackStackEntry(R.id.homeFragment)
-            navController.popBackStack(backStackEntry.destination.id, false)
-        } catch (e: Exception) {
-            navController.navigate(R.id.action_global_homeFragment)
-        }
-    }
-
-    private fun navigateToFavorites() {
-        try {
-            val backStackEntry = navController.getBackStackEntry(R.id.favoritesFragment)
-            navController.popBackStack(backStackEntry.destination.id, false)
-        } catch (e: Exception) {
-            navController.navigate(R.id.action_global_favoritesFragment)
-        }
-    }
-
-    private fun navigateToSettings() {
-        try {
-            val backStackEntry = navController.getBackStackEntry(R.id.settingsFragment)
-            navController.popBackStack(backStackEntry.destination.id, false)
-        } catch (e: Exception) {
-            navController.navigate(R.id.action_global_settingsFragment)
-        }
-    }
-
-    private fun syncBottomBar() {
+    private fun syncBottomBar(index: Int) {
         binding.bottomBarMotionLayout.run {
-            val endState = when (currentNavId) {
-                R.id.searchFragment -> R.id.search_expand
-                R.id.favoritesFragment -> R.id.like_expand
-                R.id.settingsFragment -> R.id.profile_expand
+            val endState = when (index) {
+                1 -> R.id.search_expand
+                2 -> R.id.like_expand
+                3 -> R.id.profile_expand
                 else -> R.id.home_expand
             }
             setTransition(currentState, endState)

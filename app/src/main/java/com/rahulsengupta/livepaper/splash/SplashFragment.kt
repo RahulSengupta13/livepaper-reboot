@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.rahulsengupta.livepaper.databinding.FragmentSplashBinding
-import com.rahulsengupta.livepaper.splash.Command.NavigateToHome
+import com.rahulsengupta.livepaper.splash.Command.NavigateToMainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +32,7 @@ class SplashFragment : Fragment() {
 
         viewModel.command.observe(viewLifecycleOwner, Observer {
             when (it) {
-                NavigateToHome -> navigateToHome()
+                NavigateToMainFragment -> navigateToHome()
             }
         })
     }

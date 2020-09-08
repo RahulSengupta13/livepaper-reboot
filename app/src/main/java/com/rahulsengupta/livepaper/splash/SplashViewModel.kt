@@ -19,12 +19,12 @@ class SplashViewModel @ViewModelInject constructor(
 
     init {
         viewModelScope.launch(coroutinesDispatcher.io) {
-            delay(2000)
-            _command.postValue(Command.NavigateToHome)
+            delay(1000)
+            _command.postValue(Command.NavigateToMainFragment)
         }
     }
 }
 
 sealed class Command {
-    object NavigateToHome : Command()
+    object NavigateToMainFragment : Command()
 }

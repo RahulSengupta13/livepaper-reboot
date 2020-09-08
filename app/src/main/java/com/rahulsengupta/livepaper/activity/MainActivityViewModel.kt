@@ -20,34 +20,31 @@ class MainActivityViewModel @ViewModelInject constructor(
         }
     }
 
-    private val _viewEffect = MutableLiveData<ViewEffect>()
-    val viewEffect: LiveData<ViewEffect>
-        get() = _viewEffect
+    private val _command = MutableLiveData<Command>()
+    val command: LiveData<Command>
+        get() = _command
 
     init {
-        _viewEffect.value = ViewEffect.NavigateToHome
+        _command.value = Command.NavigateToIndex(0)
     }
 
     fun onHomeClicked() {
-        _viewEffect.value = ViewEffect.NavigateToHome
+        _command.value = Command.NavigateToIndex(0)
     }
 
     fun onSearchClicked() {
-        _viewEffect.value = ViewEffect.NavigateToSearch
+        _command.value = Command.NavigateToIndex(1)
     }
 
     fun onFavoritesClicked() {
-        _viewEffect.value = ViewEffect.NavigateToFavorites
+        _command.value = Command.NavigateToIndex(2)
     }
 
     fun onSettingsClicked() {
-        _viewEffect.value = ViewEffect.NavigateToSettings
+        _command.value = Command.NavigateToIndex(3)
     }
 }
 
-sealed class ViewEffect {
-    object NavigateToHome : ViewEffect()
-    object NavigateToSearch : ViewEffect()
-    object NavigateToFavorites : ViewEffect()
-    object NavigateToSettings : ViewEffect()
+sealed class Command {
+    data class NavigateToIndex(val index: Int) : Command()
 }

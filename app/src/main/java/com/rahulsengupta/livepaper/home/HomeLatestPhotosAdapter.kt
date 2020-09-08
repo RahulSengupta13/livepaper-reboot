@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.rahulsengupta.livepaper.databinding.ItemPopularPhotoHomeBinding
 import com.rahulsengupta.livepaper.home.model.PhotoItem
@@ -20,6 +21,17 @@ class HomeLatestPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARA
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemPopularPhotoHomeBinding.inflate(inflater, parent, false)
         return PopularItemViewHolder(binding)
+    }
+
+    //ViewHolders
+    class PopularItemViewHolder(val binding: ItemPopularPhotoHomeBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(item: PhotoItem) {
+            binding.run {
+                this.item = item
+                executePendingBindings()
+            }
+        }
     }
 
     companion object {

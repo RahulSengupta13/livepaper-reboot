@@ -12,6 +12,10 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class FavoritesFragment : Fragment() {
 
+    companion object {
+        fun newInstance() = FavoritesFragment()
+    }
+
     lateinit var binding: FragmentFavoritesBinding
     private val viewModel: FavoritesViewModel by viewModels()
 

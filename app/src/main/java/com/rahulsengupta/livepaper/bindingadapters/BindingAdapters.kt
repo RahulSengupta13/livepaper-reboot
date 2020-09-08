@@ -5,14 +5,14 @@ import androidx.databinding.BindingAdapter
 import coil.api.load
 import com.mikhaellopez.circularimageview.CircularImageView
 
-@BindingAdapter("app:loadImage")
+@BindingAdapter("loadImage")
 fun loadImage(circularImageView: CircularImageView, imageUrl: String?) {
     imageUrl?.let {
         circularImageView.load(it)
     }
 }
 
-@BindingAdapter("app:loadImage")
+@BindingAdapter("loadImage")
 fun loadImage(imageView: ImageView, imageUrl: String?) {
     imageUrl?.let {
         imageView.load(it) {

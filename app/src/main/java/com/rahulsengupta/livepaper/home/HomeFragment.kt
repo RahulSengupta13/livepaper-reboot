@@ -19,6 +19,10 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
+    companion object {
+        fun newInstance() = HomeFragment()
+    }
+
     lateinit var binding: FragmentHomeBinding
     private val viewModel: HomeViewModel by viewModels()
 
@@ -38,13 +42,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.featureCollectionHomeRecyclerview.run {
+        with(binding.featureCollectionHomeRecyclerview) {
             adapter = FeaturedCollectionAdapter()
         }
 
-        binding.featurePopularPhotoRecyclerview.run {
+        with(binding.featurePopularPhotoRecyclerview) {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL).apply {
-                    gapStrategy = GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
+                gapStrategy = GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
             }
             isNestedScrollingEnabled = true
             adapter = latestPhotosAdapter

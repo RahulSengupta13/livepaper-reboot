@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.rahulsengupta.livepaper.databinding.ItemLatestPhotoSearchBinding
 import com.rahulsengupta.livepaper.home.model.PhotoItem
 
-class SearchPopularPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARATOR) {
+class SearchPopularPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(DiffCallback) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         getItem(position)?.let {
@@ -34,14 +34,12 @@ class SearchPopularPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMP
         }
     }
 
-    companion object {
-        private val COMPARATOR = object : DiffUtil.ItemCallback<PhotoItem>() {
-            override fun areItemsTheSame(oldItem: PhotoItem, newItem: PhotoItem) =
-                oldItem.id == newItem.id
+    object DiffCallback : DiffUtil.ItemCallback<PhotoItem>() {
+        override fun areItemsTheSame(oldItem: PhotoItem, newItem: PhotoItem) =
+            oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: PhotoItem, newItem: PhotoItem) =
-                oldItem == newItem
-        }
+        override fun areContentsTheSame(oldItem: PhotoItem, newItem: PhotoItem) =
+            oldItem == newItem
     }
 }
 

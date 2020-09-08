@@ -17,6 +17,10 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
 
+    companion object {
+        fun newInstance() = SearchFragment()
+    }
+
     lateinit var binding: FragmentSearchBinding
 
     private val viewModel by viewModels<SearchViewModel>()
@@ -36,22 +40,23 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = SearchPopularPhotosAdapter()
-        binding.popularPhotosViewPager.apply {
-            this.adapter = adapter
+        val popularPhotosAdapter = SearchPopularPhotosAdapter()
+        with(binding.popularPhotosViewPager) {
+            this.adapter = popularPhotosAdapter
             (getChildAt(0) as? RecyclerView)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
             offscreenPageLimit = 4
             setPageTransformer(SliderTransformer(4))
         }
 
-        val collectionsAdapter = SearchTrendingCollectionsAdapter()
-        binding.trendingCollectionHomeRecyclerview.adapter = collectionsAdapter
+        with(binding.trendingCollectionHomeRecyclerview) {
+            adapter = SearchTrendingCollectionsAdapter()
+        }
 
         binding.viewpagerPagerIndicator.attachToViewPager2(binding.popularPhotosViewPager)
 
         lifecycleScope.launch {
             viewModel.popularPhotoFlow.collectLatest {
-                adapter.submitData(it)
+                popularPhotosAdapter.submitData(it)
             }
         }
     }

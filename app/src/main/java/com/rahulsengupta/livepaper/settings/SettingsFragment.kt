@@ -12,6 +12,10 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SettingsFragment : Fragment() {
 
+    companion object {
+        fun newInstance() = SettingsFragment()
+    }
+
     lateinit var binding: FragmentSettingsBinding
     private val viewModel: SettingsViewModel by viewModels()
 
