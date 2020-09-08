@@ -7,6 +7,7 @@
     <string name="settings_title">settings</string>
     <string name="settings_explore_title">explore</string>
     <string name="settings_photos_title">popular photos</string>
+    <string name="search_categories_title">trending collections</string>
 
     <!--Home-->
     <string name="home_collections_title">collections</string>

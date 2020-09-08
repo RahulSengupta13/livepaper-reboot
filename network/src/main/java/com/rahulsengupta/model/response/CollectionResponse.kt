@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class FeaturedCollection(
+data class Collection(
     val id: Int,
     val title: String?,
     val description: String?,

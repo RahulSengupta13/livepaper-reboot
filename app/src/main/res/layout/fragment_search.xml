@@ -8,103 +8,139 @@
             type="com.rahulsengupta.livepaper.search.SearchViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activity.MainActivity">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/start_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/standard_margin" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/end_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/standard_margin" />
-
-        <View
-            android:id="@+id/search_bar_background"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="@dimen/standard_margin"
-            android:layout_marginTop="@dimen/standard_margin"
-            android:layout_marginEnd="@dimen/standard_margin"
-            android:background="@drawable/background_rounded_24dp"
-            app:layout_constraintEnd_toEndOf="@id/end_guideline"
-            app:layout_constraintStart_toStartOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/search_title" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/search_bar_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:layout_marginEnd="@dimen/standard_margin"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_search_active"
-            app:layout_constraintBottom_toBottomOf="@id/search_bar_background"
-            app:layout_constraintEnd_toEndOf="@id/search_bar_background"
-            app:layout_constraintTop_toTopOf="@id/search_bar_background"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/search_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/standard_margin"
-            android:text="@string/settings_explore_title"
-            android:textAlignment="viewStart"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:flow_horizontalStyle="spread"
-            app:layout_constraintEnd_toEndOf="@id/end_guideline"
-            app:layout_constraintStart_toStartOf="@id/start_guideline"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/search_photos_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/standard_big_margin"
-            android:text="@string/settings_photos_title"
-            android:textAlignment="viewStart"
-            android:textSize="16sp"
-            app:drawableEndCompat="@drawable/ic_arrow_right"
-            app:drawableTint="@color/red"
-            app:layout_constraintEnd_toEndOf="@id/end_guideline"
-            app:layout_constraintStart_toStartOf="@id/start_guideline"
-            app:layout_constraintTop_toBottomOf="@id/search_bar_background" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/popular_photos_view_pager"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_marginTop="@dimen/standard_margin"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:paddingStart="60dp"
-            android:paddingEnd="60dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_photos_title"
-            app:layout_constraintVertical_bias="0" />
-
-        <com.rbrooks.indefinitepagerindicator.IndefinitePagerIndicator
-            android:id="@+id/viewpager_pager_indicator"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/standard_three_quarter_margin"
-            app:dotRadius="2dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/popular_photos_view_pager"
-            app:selectedDotColor="@color/red"
-            app:selectedDotRadius="4dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            tools:context=".activity.MainActivity">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/standard_margin" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/standard_margin" />
+
+            <View
+                android:id="@+id/search_bar_background"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="@dimen/standard_margin"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginEnd="@dimen/standard_margin"
+                android:background="@drawable/background_rounded_24dp"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                app:layout_constraintStart_toStartOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/search_title" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/search_bar_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginEnd="@dimen/standard_margin"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_search_active"
+                app:layout_constraintBottom_toBottomOf="@id/search_bar_background"
+                app:layout_constraintEnd_toEndOf="@id/search_bar_background"
+                app:layout_constraintTop_toTopOf="@id/search_bar_background"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/search_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:text="@string/settings_explore_title"
+                android:textAlignment="viewStart"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:flow_horizontalStyle="spread"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                app:layout_constraintStart_toStartOf="@id/start_guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/search_photos_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_big_margin"
+                android:text="@string/settings_photos_title"
+                android:textAlignment="viewStart"
+                android:textSize="16sp"
+                app:drawableEndCompat="@drawable/ic_arrow_right"
+                app:drawableTint="@color/red"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                app:layout_constraintStart_toStartOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/search_bar_background" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/popular_photos_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:paddingStart="60dp"
+                android:paddingEnd="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_photos_title"
+                app:layout_constraintVertical_bias="0" />
+
+            <com.rbrooks.indefinitepagerindicator.IndefinitePagerIndicator
+                android:id="@+id/viewpager_pager_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_three_quarter_margin"
+                app:dotRadius="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/popular_photos_view_pager"
+                app:selectedDotColor="@color/red"
+                app:selectedDotRadius="4dp" />
+
+            <TextView
+                android:id="@+id/search_categories_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_big_margin"
+                android:text="@string/search_categories_title"
+                android:textAlignment="viewStart"
+                android:textSize="16sp"
+                app:drawableEndCompat="@drawable/ic_arrow_right"
+                app:drawableTint="@color/red"
+                app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                app:layout_constraintStart_toStartOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/viewpager_pager_indicator" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/trending_collection_home_recyclerview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginBottom="@dimen/standard_big_margin"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_categories_title"
+                app:trendingCollections="@{viewModel.trendingCollections}"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_trending_collection_search" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

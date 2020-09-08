@@ -1,6 +1,7 @@
 package com.rahulsengupta.network.service
 
 import com.rahulsengupta.model.response.*
+import com.rahulsengupta.model.response.Collection
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -16,7 +17,13 @@ interface UnsplashService {
     suspend fun getFeaturedCollections(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): Response<List<FeaturedCollection>>
+    ): Response<List<Collection>>
+
+    @GET("collections")
+    suspend fun getCollections(
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int
+    ): Response<List<Collection>>
 
     @GET("photos")
     suspend fun getPhotos(

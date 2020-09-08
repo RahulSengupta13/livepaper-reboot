@@ -42,16 +42,10 @@ class SearchFragment : Fragment() {
             (getChildAt(0) as? RecyclerView)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
             offscreenPageLimit = 4
             setPageTransformer(SliderTransformer(4))
-
-//            val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.view_pager_page_margin_small)
-//            setPageTransformer(
-//                CompositePageTransformer().apply {
-//                    addTransformer(MarginPageTransformer(pageMarginPx))
-//                    addTransformer(ScaleTransformer())
-//                }
-//            )
         }
 
+        val collectionsAdapter = SearchTrendingCollectionsAdapter()
+        binding.trendingCollectionHomeRecyclerview.adapter = collectionsAdapter
 
         binding.viewpagerPagerIndicator.attachToViewPager2(binding.popularPhotosViewPager)
 

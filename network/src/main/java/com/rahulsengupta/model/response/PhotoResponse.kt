@@ -1,7 +1,7 @@
 package com.rahulsengupta.model.response
 
-import com.rahulsengupta.model.response.FeaturedCollection.CoverPhoto
-import com.rahulsengupta.model.response.FeaturedCollection.User
+import com.rahulsengupta.model.response.Collection.CoverPhoto
+import com.rahulsengupta.model.response.Collection.User
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

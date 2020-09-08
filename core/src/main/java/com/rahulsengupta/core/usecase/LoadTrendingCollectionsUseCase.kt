@@ -4,7 +4,9 @@ import com.rahulsengupta.data.Result
 import com.rahulsengupta.datasource.UnSplashDataSource
 import com.rahulsengupta.model.response.Collection
 import com.rahulsengupta.persistence.dao.FeaturedCollectionDao
+import com.rahulsengupta.persistence.dao.TrendingCollectionDao
 import com.rahulsengupta.persistence.entity.FeaturedCollectionEntity
+import com.rahulsengupta.persistence.entity.TrendingCollectionEntity
 import com.rahulsengupta.persistence.entity.common.CoverPhoto
 import com.rahulsengupta.persistence.entity.common.Urls
 import com.rahulsengupta.persistence.entity.common.User
@@ -12,18 +14,18 @@ import com.rahulsengupta.persistence.entity.common.UserImage
 import javax.inject.Inject
 import javax.inject.Singleton
 
-interface LoadFeatureCollectionsUseCase {
+interface LoadTrendingCollectionsUseCase {
     suspend operator fun invoke(page: Int, pageSize: Int)
 }
 
 @Singleton
-class LoadFeatureCollectionsUseCaseImpl @Inject constructor(
+class LoadTrendingCollectionsUseCaseImpl @Inject constructor(
     private val dataSource: UnSplashDataSource,
-    private val dao: FeaturedCollectionDao
-) : LoadFeatureCollectionsUseCase {
+    private val dao: TrendingCollectionDao
+) : LoadTrendingCollectionsUseCase {
 
     override suspend fun invoke(page: Int, pageSize: Int) {
-        val result = dataSource.getFeatureCollections(page, pageSize)
+        val result = dataSource.getCollections(page, pageSize)
         if (result.status == Result.Status.ERROR) return
 
         val data = result.data ?: return
@@ -32,9 +34,9 @@ class LoadFeatureCollectionsUseCaseImpl @Inject constructor(
         dao.insertAllOrReplace(entityList)
     }
 
-    private fun toEntityList(list: List<Collection>): List<FeaturedCollectionEntity> {
+    private fun toEntityList(list: List<Collection>): List<TrendingCollectionEntity> {
         return list.map {
-            FeaturedCollectionEntity(
+            TrendingCollectionEntity(
                 id = it.id,
                 title = it.title ?: "",
                 description = it.description,

@@ -2,7 +2,7 @@ package com.rahulsengupta.model.response
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import com.rahulsengupta.model.response.FeaturedCollection.*
+import com.rahulsengupta.model.response.Collection.*
 
 @Serializable
 data class CollectionDetails(
