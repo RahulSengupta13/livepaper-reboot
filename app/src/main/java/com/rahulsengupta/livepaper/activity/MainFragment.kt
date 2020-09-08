@@ -32,7 +32,9 @@ class MainFragment : Fragment() {
 
         with(binding.mainFragmentViewPager) {
             isUserInputEnabled = false
-            adapter = MainFragmentViewPagerAdapter(requireActivity())
+            adapter = MainFragmentViewPagerAdapter(requireActivity()).apply {
+                offscreenPageLimit = 4
+            }
         }
 
         viewModel.command.observe(viewLifecycleOwner, {
