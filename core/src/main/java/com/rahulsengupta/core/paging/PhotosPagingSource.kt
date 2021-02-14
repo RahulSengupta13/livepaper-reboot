@@ -17,7 +17,7 @@ class PhotosPagingSource(
 
             val response = dataSource.getPhotos(
                 page = pageToLoad,
-                pageSize = LoadPhotosUseCase.PAGE_SIZE,
+                pageSize = params.loadSize,
                 orderBy = orderBy
             )
             val data = response.data ?: return LoadResult.Error(Exception())
