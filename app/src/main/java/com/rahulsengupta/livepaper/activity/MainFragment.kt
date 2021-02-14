@@ -40,7 +40,7 @@ class MainFragment : Fragment() {
         viewModel.command.observe(viewLifecycleOwner, {
             when (it) {
                 is Command.NavigateToIndex -> {
-                    binding.mainFragmentViewPager.setCurrentItem(it.index, false)
+                    binding.mainFragmentViewPager.setCurrentItem(it.index, true)
                 }
                 else -> Unit
             }

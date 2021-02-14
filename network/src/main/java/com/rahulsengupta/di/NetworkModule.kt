@@ -1,5 +1,6 @@
 package com.rahulsengupta.di
 
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.rahulsengupta.network.BuildConfig
 import com.rahulsengupta.network.service.UnsplashService
@@ -56,6 +57,7 @@ object NetworkModule {
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .addInterceptor(headerAuthorizationInterceptor)
+            .addNetworkInterceptor(StethoInterceptor())
             .build()
     }
 

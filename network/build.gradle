@@ -28,6 +28,9 @@ dependencies {
     api Dependencies.okhttpLoggingInterceptor
     api Dependencies.kotlinSerializationConverter
 
+    api Dependencies.stetho
+    implementation Dependencies.stethoOkHttp
+
     implementation Dependencies.kotlinSerialization
     implementation Dependencies.kotlinSerializationJson
 }

@@ -21,8 +21,8 @@ class LoadPhotosUseCase @Inject constructor(
     }.flow
 
     companion object {
-        const val PAGE_SIZE = 25
-        const val PREFETCH_DISTANCE = 13
+        const val PAGE_SIZE = 40
+        const val PREFETCH_DISTANCE = 15
         const val ORDER_BY_LATEST = "latest"
         const val ORDER_BY_POPULAR = "popular"
     }

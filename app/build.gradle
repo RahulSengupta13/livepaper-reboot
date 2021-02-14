@@ -88,6 +88,7 @@ dependencies {
     implementation Dependencies.circularImageView
     implementation Dependencies.threeTen
     implementation Dependencies.coil
+    implementation Dependencies.viewPagerIndicator
 
     // Hilt
     kapt Dependencies.androidxHiltCompiler
@@ -99,6 +100,4 @@ dependencies {
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.junitAndroidx
     androidTestImplementation Dependencies.espresso
-
-    implementation 'com.github.rbro112:Android-Indefinite-Pager-Indicator:1.3'
 }

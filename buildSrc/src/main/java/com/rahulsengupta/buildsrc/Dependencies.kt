@@ -35,6 +35,8 @@ object Versions {
 
     const val palette = "1.0.0"
     const val swipeRefresh = "1.2.0-alpha01"
+    const val stetho = "1.5.1"
+    const val viewPagerIndicator = "1.3"
 
     //database
     const val room = "2.3.0-beta01"
@@ -82,6 +84,9 @@ object Dependencies {
 
     const val palette = "androidx.palette:palette:${Versions.palette}"
     const val swipeRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefresh}"
+    const val stetho = "com.facebook.stetho:stetho:${Versions.stetho}"
+    const val stethoOkHttp = "com.facebook.stetho:stetho-okhttp3:${Versions.stetho}"
+    const val viewPagerIndicator = "com.github.rbro112:Android-Indefinite-Pager-Indicator:${Versions.viewPagerIndicator}"
 
     const val roomRuntime =  "androidx.room:room-runtime:${Versions.room}"
     const val pagingRuntime =  "androidx.paging:paging-runtime-ktx:${Versions.paging}"
