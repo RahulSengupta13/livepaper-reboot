@@ -12,16 +12,17 @@ class LoadPhotosUseCase @Inject constructor(
     private val dataSource: UnSplashDataSource
 ) {
 
-    val latestPhotoFlow = Pager(PagingConfig(pageSize = PAGE_SIZE)) {
+    val latestPhotoFlow = Pager(PagingConfig(pageSize = PAGE_SIZE, prefetchDistance = PREFETCH_DISTANCE)) {
         PhotosPagingSource(dataSource, ORDER_BY_LATEST)
     }.flow
 
-    val popularPhotoFlow = Pager(PagingConfig(pageSize = PAGE_SIZE)) {
+    val popularPhotoFlow = Pager(PagingConfig(pageSize = PAGE_SIZE, prefetchDistance = PREFETCH_DISTANCE)) {
         PhotosPagingSource(dataSource, ORDER_BY_POPULAR)
     }.flow
 
     companion object {
-        const val PAGE_SIZE = 10
+        const val PAGE_SIZE = 25
+        const val PREFETCH_DISTANCE = 13
         const val ORDER_BY_LATEST = "latest"
         const val ORDER_BY_POPULAR = "popular"
     }
