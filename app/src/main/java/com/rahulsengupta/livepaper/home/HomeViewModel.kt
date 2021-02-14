@@ -1,6 +1,5 @@
 package com.rahulsengupta.livepaper.home
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,11 +13,14 @@ import com.rahulsengupta.livepaper.home.model.FeaturedCollectionItem
 import com.rahulsengupta.livepaper.home.model.PhotoItem
 import com.rahulsengupta.persistence.entity.FeaturedCollectionEntity
 import com.rahulsengupta.persistence.usecase.GetFeaturedCollectionUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel @ViewModelInject constructor(
+@HiltViewModel
+class HomeViewModel @Inject constructor(
     private val loadFeatureCollections: LoadFeatureCollectionsUseCase,
     private val getFeaturedCollections: GetFeaturedCollectionUseCase,
     private val dispatcher: CoroutinesDispatcher,

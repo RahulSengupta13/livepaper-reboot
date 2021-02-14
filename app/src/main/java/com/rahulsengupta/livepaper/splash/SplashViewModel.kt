@@ -1,15 +1,17 @@
 package com.rahulsengupta.livepaper.splash
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rahulsengupta.core.coroutine.CoroutinesDispatcher
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SplashViewModel @ViewModelInject constructor(
+@HiltViewModel
+class SplashViewModel @Inject constructor(
     coroutinesDispatcher: CoroutinesDispatcher
 ) : ViewModel() {
 

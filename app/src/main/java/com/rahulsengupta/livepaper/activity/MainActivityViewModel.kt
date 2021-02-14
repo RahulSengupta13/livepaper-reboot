@@ -1,15 +1,17 @@
 package com.rahulsengupta.livepaper.activity
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rahulsengupta.core.coroutine.CoroutinesDispatcher
 import com.rahulsengupta.core.usecase.LoadTrendingCollectionsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainActivityViewModel @ViewModelInject constructor(
+@HiltViewModel
+class MainActivityViewModel @Inject constructor(
     loadTrendingCollectionsUseCase: LoadTrendingCollectionsUseCase,
     coroutineDispatcher: CoroutinesDispatcher
 ) : ViewModel() {
@@ -22,6 +24,7 @@ class MainActivityViewModel @ViewModelInject constructor(
         viewModelScope.launch(coroutineDispatcher.io) {
             loadTrendingCollectionsUseCase.invoke(1, 10)
         }
+        _command.value = Command.NavigateToIndex(0)
     }
 
     fun onHomeClicked() {
