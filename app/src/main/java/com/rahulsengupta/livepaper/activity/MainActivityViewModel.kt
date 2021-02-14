@@ -14,18 +14,14 @@ class MainActivityViewModel @ViewModelInject constructor(
     coroutineDispatcher: CoroutinesDispatcher
 ) : ViewModel() {
 
-    init {
-        viewModelScope.launch(coroutineDispatcher.io) {
-            loadTrendingCollectionsUseCase.invoke(1, 10)
-        }
-    }
-
     private val _command = MutableLiveData<Command>()
     val command: LiveData<Command>
         get() = _command
 
     init {
-        _command.value = Command.NavigateToIndex(0)
+        viewModelScope.launch(coroutineDispatcher.io) {
+            loadTrendingCollectionsUseCase.invoke(1, 10)
+        }
     }
 
     fun onHomeClicked() {

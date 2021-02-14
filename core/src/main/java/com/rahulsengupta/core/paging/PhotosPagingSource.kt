@@ -1,6 +1,7 @@
 package com.rahulsengupta.core.paging
 
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import com.rahulsengupta.core.usecase.LoadPhotosUseCase
 import com.rahulsengupta.datasource.UnSplashDataSource
 import com.rahulsengupta.model.response.PhotoResponse
@@ -28,6 +29,12 @@ class PhotosPagingSource(
             )
         } catch (exception: Exception) {
             LoadResult.Error(exception)
+        }
+    }
+
+    override fun getRefreshKey(state: PagingState<Int, PhotoResponse>): Int? {
+        return state.anchorPosition?.let {
+            state.closestPageToPosition(it)?.prevKey?.plus(1) ?: state.closestPageToPosition(it)?.nextKey?.minus(1)
         }
     }
 }

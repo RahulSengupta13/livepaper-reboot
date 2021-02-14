@@ -29,4 +29,5 @@ dependencies {
     api Dependencies.kotlinSerializationConverter
 
     implementation Dependencies.kotlinSerialization
+    implementation Dependencies.kotlinSerializationJson
 }

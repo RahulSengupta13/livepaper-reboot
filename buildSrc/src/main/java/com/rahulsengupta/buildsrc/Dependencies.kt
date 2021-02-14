@@ -12,9 +12,10 @@ object AppMetaData {
 
 object Versions {
     // Application
-    const val kotlin = "1.4.0"
-    const val kotlinSerialization = "1.0.0-RC"
-    const val gradle = "4.1.0-rc02"
+    const val kotlin = "1.4.30"
+    const val kotlinSerialization = "1.1.0-RC"
+    const val kotlinSerializationJson = "1.0.1"
+    const val gradle = "4.2.0-beta04"
 
     //core
     const val appcompat = "1.1.0-beta01"
@@ -33,11 +34,11 @@ object Versions {
     const val preference = "1.1.1"
 
     const val palette = "1.0.0"
-    const val swipeRefresh = "1.1.0-rc01"
+    const val swipeRefresh = "1.2.0-alpha01"
 
     //database
-    const val room = "2.3.0-alpha02"
-    const val paging = "3.0.0-alpha06"
+    const val room = "2.3.0-beta01"
+    const val paging = "3.0.0-beta01"
 
     //networking
     const val retrofit = "2.9.0"
@@ -45,11 +46,11 @@ object Versions {
     const val kotlinSerializationConverter = "0.7.0"
 
     //di
-    const val daggerHilt = "2.28-alpha"
-    const val daggerHiltJetpack = "1.0.0-alpha01"
+    const val daggerHilt = "2.32-alpha"
+    const val daggerHiltJetpack = "1.0.0-alpha03"
 
     //image
-    const val coil = "0.11.0"
+    const val coil = "1.1.1"
 
     //testing
     const val junit = "4.12"
@@ -88,6 +89,8 @@ object Dependencies {
     const val material =  "com.google.android.material:material:${Versions.material}"
     const val kotlinStdlib =  "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.kotlinSerialization}"
+    const val kotlinSerializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinSerializationJson}"
+
     const val coroutinesAndroid =  "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val coroutinesCore =  "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val preference =  "androidx.preference:preference:${Versions.preference}"

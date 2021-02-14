@@ -50,6 +50,7 @@ dependencies {
 
     implementation Dependencies.kotlinStdlib
     implementation Dependencies.kotlinSerialization
+    implementation Dependencies.kotlinSerializationJson
     implementation Dependencies.kotlinSerializationConverter
 
     implementation Dependencies.coroutinesAndroid

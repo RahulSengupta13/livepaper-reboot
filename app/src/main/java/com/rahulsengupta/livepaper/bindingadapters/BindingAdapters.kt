@@ -2,7 +2,7 @@ package com.rahulsengupta.livepaper.bindingadapters
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import coil.api.load
+import coil.load
 import com.mikhaellopez.circularimageview.CircularImageView
 
 @BindingAdapter("loadImage")

@@ -55,6 +55,8 @@ class MainActivity : AppCompatActivity() {
                 is NavigateToIndex -> syncBottomBar(it.index)
             }
         })
+
+        syncBottomBar(1)
     }
 
     private fun syncBottomBar(index: Int) {

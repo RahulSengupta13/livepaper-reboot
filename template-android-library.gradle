@@ -42,6 +42,7 @@ dependencies {
 
     implementation Dependencies.kotlinStdlib
     implementation Dependencies.kotlinSerialization
+    implementation Dependencies.kotlinSerializationJson
 
     //testing
     testImplementation Dependencies.junit
