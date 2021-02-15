@@ -45,7 +45,9 @@ class SearchViewModel @Inject constructor(
         pagingData.map {
             PhotoItem(
                 id = it.id,
-                imageUrl = it.urls?.regular ?: ""
+                imageUrl = it.urls?.regular ?: "",
+                width = it.width,
+                height = it.height
             )
         }
     }.cachedIn(viewModelScope)

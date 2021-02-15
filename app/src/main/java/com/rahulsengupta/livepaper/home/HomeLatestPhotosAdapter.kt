@@ -2,6 +2,7 @@ package com.rahulsengupta.livepaper.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -25,11 +26,16 @@ class HomeLatestPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARA
 
     //ViewHolders
     class PopularItemViewHolder(val binding: ItemPopularPhotoHomeBinding) : RecyclerView.ViewHolder(binding.root) {
+
         fun bind(item: PhotoItem) {
-            binding.run {
-                this.item = item
-                executePendingBindings()
+            with(ConstraintSet()) {
+                clone(binding.container)
+                setDimensionRatio(binding.itemPopularPhotoImageview.id, "${item.width}:${item.height}")
+                applyTo(binding.container)
             }
+
+            binding.item = item
+            binding.executePendingBindings()
         }
     }
 
