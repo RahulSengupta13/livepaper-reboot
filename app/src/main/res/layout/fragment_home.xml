@@ -12,21 +12,25 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:background="@android:color/transparent">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true">
 
                     <androidx.constraintlayout.widget.Guideline
                         android:id="@+id/start_guideline"
@@ -42,70 +46,40 @@
                         android:orientation="vertical"
                         app:layout_constraintGuide_end="@dimen/standard_margin" />
 
-                    <TextView
-                        android:id="@+id/home_collections_title"
+                    <View
+                        android:id="@+id/home_search_bar_background"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/standard_bigger_margin"
-                        android:text="@string/home_collections_title"
-                        android:textAlignment="viewStart"
-                        android:textSize="28sp"
-                        android:textStyle="bold"
-                        app:flow_horizontalStyle="spread"
-                        app:layout_constraintEnd_toStartOf="@id/home_collections_view_all"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="@dimen/standard_margin"
+                        android:layout_marginTop="@dimen/standard_margin"
+                        android:layout_marginEnd="@dimen/standard_margin"
+                        android:background="@drawable/background_rounded_24dp"
+                        app:layout_constraintEnd_toEndOf="@id/end_guideline"
                         app:layout_constraintStart_toStartOf="@id/start_guideline"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/home_collections_subtitle"
-                        android:layout_width="0dp"
+                        android:id="@+id/home_search_title"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/standard_margin"
-                        android:text="@string/home_collections_subtitle"
+                        android:text="@string/search_title"
                         android:textAlignment="viewStart"
                         android:textSize="16sp"
-                        app:flow_horizontalStyle="spread"
-                        app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                        app:layout_constraintStart_toStartOf="@id/start_guideline"
-                        app:layout_constraintTop_toBottomOf="@id/home_collections_title" />
+                        app:layout_constraintBottom_toBottomOf="@id/home_search_bar_background"
+                        app:layout_constraintEnd_toEndOf="@id/home_search_bar_background"
+                        app:layout_constraintStart_toStartOf="@id/home_search_bar_background"
+                        app:layout_constraintTop_toTopOf="@id/home_search_bar_background" />
 
-                    <TextView
-                        android:id="@+id/home_collections_view_all"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/home_collections_view_all"
-                        android:textAlignment="viewEnd"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="@id/home_collections_title"
-                        app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                        app:layout_constraintStart_toEndOf="@id/home_collections_title" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/feature_collection_home_recyclerview"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/standard_half_margin"
-                        android:orientation="horizontal"
-                        android:overScrollMode="never"
-                        app:featuredCollections="@{viewModel.featuredCollections}"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/home_collections_subtitle"
-                        tools:itemCount="10"
-                        tools:listitem="@layout/item_featured_collection_home" />
-
-                    <TextView
-                        android:id="@+id/home_popular_photos_title"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/standard_margin"
-                        android:text="@string/home_popular_photos_title"
-                        android:textAlignment="viewStart"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                        app:layout_constraintStart_toStartOf="@id/start_guideline"
-                        app:layout_constraintTop_toBottomOf="@id/feature_collection_home_recyclerview" />
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/home_search_bar_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_marginEnd="@dimen/standard_margin"
+                        app:layout_constraintBottom_toBottomOf="@id/home_search_bar_background"
+                        app:layout_constraintEnd_toEndOf="@id/home_search_bar_background"
+                        app:layout_constraintTop_toTopOf="@id/home_search_bar_background"
+                        app:srcCompat="@drawable/ic_search_active"
+                        tools:ignore="ContentDescription" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>

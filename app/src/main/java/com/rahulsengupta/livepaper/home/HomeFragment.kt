@@ -10,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
-import androidx.recyclerview.widget.StaggeredGridLayoutManager.GAP_HANDLING_NONE
 import com.rahulsengupta.livepaper.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
@@ -25,17 +24,13 @@ class HomeFragment : Fragment() {
         fun newInstance() = HomeFragment()
     }
 
-    lateinit var binding: FragmentHomeBinding
-    private val viewModel: HomeViewModel by viewModels()
+    private lateinit var binding: FragmentHomeBinding
     private var fetchLatestPhotosJob: Job? = null
 
+    private val viewModel: HomeViewModel by viewModels()
     private val latestPhotosAdapter = HomeLatestPhotosAdapter()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(inflater)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
@@ -45,21 +40,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding.featureCollectionHomeRecyclerview) {
-            adapter = FeaturedCollectionAdapter()
-        }
-
         with(binding.featurePopularPhotoRecyclerview) {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL).apply {
-                gapStrategy = GAP_HANDLING_NONE
+                gapStrategy = GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
             }
             isNestedScrollingEnabled = true
             adapter = latestPhotosAdapter
         }
-    }
 
-    override fun onResume() {
-        super.onResume()
         refreshLatestPhotos()
     }
 

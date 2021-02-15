@@ -25,7 +25,6 @@ class HomeLatestPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARA
 
     //ViewHolders
     class PopularItemViewHolder(val binding: ItemPopularPhotoHomeBinding) : RecyclerView.ViewHolder(binding.root) {
-
         fun bind(item: PhotoItem) {
             binding.run {
                 this.item = item
@@ -36,11 +35,8 @@ class HomeLatestPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARA
 
     companion object {
         private val COMPARATOR = object : DiffUtil.ItemCallback<PhotoItem>() {
-            override fun areItemsTheSame(oldItem: PhotoItem, newItem: PhotoItem) =
-                oldItem == newItem
-
-            override fun areContentsTheSame(oldItem: PhotoItem, newItem: PhotoItem) =
-                oldItem == newItem
+            override fun areItemsTheSame(oldItem: PhotoItem, newItem: PhotoItem) = oldItem == newItem
+            override fun areContentsTheSame(oldItem: PhotoItem, newItem: PhotoItem) = oldItem == newItem
         }
     }
 }
