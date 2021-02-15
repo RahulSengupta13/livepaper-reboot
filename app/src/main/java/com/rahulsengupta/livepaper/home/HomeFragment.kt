@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
+import androidx.recyclerview.widget.StaggeredGridLayoutManager.GAP_HANDLING_NONE
 import com.rahulsengupta.livepaper.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
@@ -50,7 +51,7 @@ class HomeFragment : Fragment() {
 
         with(binding.featurePopularPhotoRecyclerview) {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL).apply {
-                gapStrategy = GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
+                gapStrategy = GAP_HANDLING_NONE
             }
             isNestedScrollingEnabled = true
             adapter = latestPhotosAdapter

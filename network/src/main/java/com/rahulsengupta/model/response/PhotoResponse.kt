@@ -1,7 +1,7 @@
 package com.rahulsengupta.model.response
 
-import com.rahulsengupta.model.response.Collection.CoverPhoto
-import com.rahulsengupta.model.response.Collection.User
+import com.rahulsengupta.model.response.common.Urls
+import com.rahulsengupta.model.response.common.User
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -19,5 +19,5 @@ data class PhotoResponse(
     val height: Int,
     val likes: Int,
     val color: String,
-    val urls: CoverPhoto.Urls?
+    val urls: Urls?
 )

@@ -37,7 +37,7 @@ class HomeLatestPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARA
     companion object {
         private val COMPARATOR = object : DiffUtil.ItemCallback<PhotoItem>() {
             override fun areItemsTheSame(oldItem: PhotoItem, newItem: PhotoItem) =
-                oldItem.id == newItem.id
+                oldItem == newItem
 
             override fun areContentsTheSame(oldItem: PhotoItem, newItem: PhotoItem) =
                 oldItem == newItem

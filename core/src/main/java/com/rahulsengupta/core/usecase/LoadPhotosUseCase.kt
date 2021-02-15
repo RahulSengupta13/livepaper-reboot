@@ -36,7 +36,7 @@ class LoadPhotosUseCase @Inject constructor(
     }
 
     companion object {
-        const val PAGE_SIZE = 20
+        const val PAGE_SIZE = 30
         const val PREFETCH_DISTANCE = 12
         const val ORDER_BY_LATEST = "latest"
         const val ORDER_BY_POPULAR = "popular"

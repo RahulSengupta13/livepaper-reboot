@@ -1,7 +1,9 @@
 package com.rahulsengupta.network.service
 
-import com.rahulsengupta.model.response.*
 import com.rahulsengupta.model.response.Collection
+import com.rahulsengupta.model.response.CollectionDetails
+import com.rahulsengupta.model.response.PhotoResponse
+import com.rahulsengupta.model.response.Wallpaper
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -19,12 +21,6 @@ interface UnsplashService {
         @Query("per_page") perPage: Int
     ): Response<List<Collection>>
 
-    @GET("collections")
-    suspend fun getCollections(
-        @Query("page") page: Int,
-        @Query("per_page") perPage: Int
-    ): Response<List<Collection>>
-
     @GET("photos")
     suspend fun getPhotos(
         @Query("page") page: Int?,
@@ -36,13 +32,6 @@ interface UnsplashService {
     suspend fun getCollectionDetails(
         @Path("collectionId") collectionId: Int
     ): Response<CollectionDetails>
-
-    @GET("/collections/{collectionId}/photos")
-    suspend fun getCollectionPhotos(
-        @Path("collectionId") collectionId: Int,
-        @Query("page") page: Int,
-        @Query("per_page") perPage: Int
-    ): Response<List<CollectionWallpaper>>
 
     @GET("/photos/{id}/")
     suspend fun getWallpaper(
