@@ -46,7 +46,7 @@ class PhotosRemoteMediator constructor(
                 }
             }
 
-            val response = dataSource.getPhotos(page, state.config.pageSize, ORDER_BY_POPULAR)
+            val response = dataSource.getPhotos(page, state.config.pageSize, ORDER_BY_LATEST)
             val photos = response.data ?: return MediatorResult.Success(endOfPaginationReached = true)
             val photoEntities = toLatestPhotoEntities(photos)
             val endOfPaginationReached = photoEntities.isEmpty()

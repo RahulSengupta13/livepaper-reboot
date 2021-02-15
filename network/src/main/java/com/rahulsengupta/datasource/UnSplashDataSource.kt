@@ -22,7 +22,7 @@ class UnSplashDataSource @Inject constructor(
         service.getPhotos(page, pageSize, orderBy)
     }
 
-    suspend fun getTopics() = getResult {
-        service.getTopics()
+    suspend fun getTopics(page: Int?, pageSize: Int, orderBy: String) = getResult {
+        service.getTopics(page, pageSize, orderBy)
     }
 }

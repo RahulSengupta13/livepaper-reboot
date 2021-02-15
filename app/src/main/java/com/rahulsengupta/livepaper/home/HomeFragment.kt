@@ -99,7 +99,6 @@ class HomeFragment : Fragment() {
     private fun scrollToTop() {
         val smoothScroller = FastScroller(requireContext()).apply { targetPosition = 0 }
         recyclerViewlayoutManager.startSmoothScroll(smoothScroller)
-        binding.homeAppBar.setExpanded(true)
     }
 
     private fun refreshLatestPhotos() {

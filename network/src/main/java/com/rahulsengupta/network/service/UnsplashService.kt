@@ -1,9 +1,7 @@
 package com.rahulsengupta.network.service
 
+import com.rahulsengupta.model.response.*
 import com.rahulsengupta.model.response.Collection
-import com.rahulsengupta.model.response.CollectionDetails
-import com.rahulsengupta.model.response.PhotoResponse
-import com.rahulsengupta.model.response.Wallpaper
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -38,6 +36,10 @@ interface UnsplashService {
         @Path("id") id: String
     ): Response<Wallpaper>
 
-    @GET("/topics?order_by=featured")
-    suspend fun getTopics(): Response<Void>
+    @GET("/topics")
+    suspend fun getTopics(
+        @Query("page") page: Int?,
+        @Query("per_page") perPage: Int,
+        @Query("order_by") orderBy: String
+    ): Response<List<TopicsResponse>>
 }

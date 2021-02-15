@@ -1,4 +1,4 @@
-package com.rahulsengupta.core.paging.home
+package com.rahulsengupta.core.paging.search
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

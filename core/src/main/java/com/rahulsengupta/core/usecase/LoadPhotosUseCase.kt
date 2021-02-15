@@ -4,7 +4,7 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.rahulsengupta.core.paging.home.PhotosPagingSource
+import com.rahulsengupta.core.paging.search.PhotosPagingSource
 import com.rahulsengupta.core.paging.home.PhotosRemoteMediator
 import com.rahulsengupta.datasource.UnSplashDataSource
 import com.rahulsengupta.persistence.LivePaperDatabase
@@ -21,7 +21,7 @@ class LoadPhotosUseCase @Inject constructor(
 ) {
 
     val latestPhotosFlow = Pager(PagingConfig(pageSize = PAGE_SIZE, prefetchDistance = PREFETCH_DISTANCE)) {
-        PhotosPagingSource(dataSource, ORDER_BY_LATEST)
+        PhotosPagingSource(dataSource, ORDER_BY_POPULAR)
     }.flow
 
     fun getPopularPhotosFlow(): Flow<PagingData<LatestPhotoEntity>> {
