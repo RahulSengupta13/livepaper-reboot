@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="background_bottom_bar">@color/dark</color>
+    <color name="fab_background">@color/dark</color>
 </resources>

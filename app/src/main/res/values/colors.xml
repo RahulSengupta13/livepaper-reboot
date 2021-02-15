@@ -18,4 +18,5 @@
     <color name="toolbar_title_color">#ECECEC</color>
 
     <color name="background_bottom_bar">@color/white</color>
+    <color name="fab_background">@color/white</color>
 </resources>
