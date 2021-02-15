@@ -8,15 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
 import com.rahulsengupta.core.ui.FastScroller
 import com.rahulsengupta.livepaper.databinding.FragmentHomeBinding
+import com.rahulsengupta.livepaper.home.ViewEffect.RefreshLatestPhotos
 import com.rahulsengupta.livepaper.home.ViewEffect.ScrollToTop
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 
 @ExperimentalPagingApi
@@ -75,7 +80,17 @@ class HomeFragment : Fragment() {
         viewModel.viewEffect.observe(viewLifecycleOwner) {
             when(it) {
                 is ScrollToTop -> scrollToTop()
+                is RefreshLatestPhotos -> refreshLatestPhotos()
             }
+        }
+
+        lifecycleScope.launch {
+            latestPhotosAdapter.loadStateFlow
+                .distinctUntilChangedBy { it.refresh }
+                .filter { it.refresh is LoadState.NotLoading }
+                .collect {
+                    binding.swipeRefresh.isRefreshing = false
+                }
         }
 
         refreshLatestPhotos()

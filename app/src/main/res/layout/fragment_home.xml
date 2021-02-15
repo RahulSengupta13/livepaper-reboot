@@ -96,16 +96,23 @@
                 android:fillViewport="true"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/feature_popular_photo_recyclerview"
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/swipe_refresh"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:itemCount="3"
-                    tools:listitem="@layout/item_popular_photo_home" />
+                    app:refreshListener="@{() -> viewModel.onRefreshRequested()}">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/feature_popular_photo_recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_popular_photo_home" />
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
             </com.rahulsengupta.core.ui.SmartNestedScrollView>
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -9,6 +9,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
 import com.rahulsengupta.core.usecase.LoadPhotosUseCase
+import com.rahulsengupta.livepaper.home.ViewEffect.RefreshLatestPhotos
 import com.rahulsengupta.livepaper.home.ViewEffect.ScrollToTop
 import com.rahulsengupta.livepaper.home.model.PhotoItem
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -43,8 +44,14 @@ class HomeViewModel @Inject constructor(
     fun onFabClicked() {
         _viewEffect.value = ScrollToTop
     }
+
+    fun onRefreshRequested() {
+        _viewEffect.value = RefreshLatestPhotos
+    }
 }
 
 sealed class ViewEffect {
     object ScrollToTop : ViewEffect()
+
+    object RefreshLatestPhotos : ViewEffect()
 }

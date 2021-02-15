@@ -2,6 +2,7 @@ package com.rahulsengupta.livepaper.bindingadapters
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import coil.load
 import com.mikhaellopez.circularimageview.CircularImageView
 
@@ -19,4 +20,9 @@ fun loadImage(imageView: ImageView, imageUrl: String?) {
             crossfade(true)
         }
     }
+}
+
+@BindingAdapter("refreshListener")
+fun setRefreshListener(view: SwipeRefreshLayout, listener: SwipeRefreshLayout.OnRefreshListener) {
+    view.setOnRefreshListener(listener)
 }
