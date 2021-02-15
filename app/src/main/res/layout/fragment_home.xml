@@ -58,6 +58,16 @@
                         app:layout_constraintStart_toStartOf="@id/start_guideline"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/home_search_bar_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_marginEnd="@dimen/standard_margin"
+                        app:layout_constraintBottom_toBottomOf="@id/home_search_bar_background"
+                        app:layout_constraintEnd_toEndOf="@id/home_search_bar_background"
+                        app:layout_constraintTop_toTopOf="@id/home_search_bar_background"
+                        app:srcCompat="@drawable/ic_search_active" />
+
                     <TextView
                         android:id="@+id/home_search_title"
                         android:layout_width="wrap_content"
@@ -69,17 +79,6 @@
                         app:layout_constraintEnd_toEndOf="@id/home_search_bar_background"
                         app:layout_constraintStart_toStartOf="@id/home_search_bar_background"
                         app:layout_constraintTop_toTopOf="@id/home_search_bar_background" />
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/home_search_bar_icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="28dp"
-                        android:layout_marginEnd="@dimen/standard_margin"
-                        app:layout_constraintBottom_toBottomOf="@id/home_search_bar_background"
-                        app:layout_constraintEnd_toEndOf="@id/home_search_bar_background"
-                        app:layout_constraintTop_toTopOf="@id/home_search_bar_background"
-                        app:srcCompat="@drawable/ic_search_active"
-                        tools:ignore="ContentDescription" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>

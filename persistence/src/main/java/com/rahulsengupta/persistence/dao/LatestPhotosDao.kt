@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Query
 import com.rahulsengupta.persistence.entity.LatestPhotoEntity
-import com.rahulsengupta.persistence.entity.LatestPhotoRemoteKey
 
 @Dao
 interface LatestPhotosDao : BaseDao<LatestPhotoEntity> {
