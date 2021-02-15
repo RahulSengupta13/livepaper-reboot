@@ -3,7 +3,9 @@ package com.rahulsengupta.livepaper.bindingadapters
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import coil.imageLoader
 import coil.load
+import coil.request.ImageRequest
 import com.mikhaellopez.circularimageview.CircularImageView
 
 @BindingAdapter("loadImage")

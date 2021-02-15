@@ -7,6 +7,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.rahulsengupta.core.ui.loadImageWithPalette
 import com.rahulsengupta.livepaper.databinding.ItemPopularPhotoHomeBinding
 import com.rahulsengupta.livepaper.home.model.PhotoItem
 
@@ -34,8 +35,13 @@ class HomeLatestPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARA
                 applyTo(binding.container)
             }
 
-            binding.item = item
-            binding.executePendingBindings()
+            with(binding) {
+                this.item = item
+                executePendingBindings()
+                itemPopularPhotoImageview.loadImageWithPalette(item.imageUrl) {
+                    binding.banner.setBackgroundDrawable(it)
+                }
+            }
         }
     }
 

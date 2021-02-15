@@ -18,5 +18,7 @@ dependencies {
     implementation Dependencies.roomRuntime
     implementation Dependencies.roomKtx
 
+    implementation Dependencies.coil
+    implementation Dependencies.palette
     implementation Dependencies.pagingRuntime
 }
