@@ -27,7 +27,6 @@ class HomeLatestPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARA
 
     //ViewHolders
     class PopularItemViewHolder(val binding: ItemPopularPhotoHomeBinding) : RecyclerView.ViewHolder(binding.root) {
-
         fun bind(item: PhotoItem) {
             with(ConstraintSet()) {
                 clone(binding.container)
@@ -38,8 +37,8 @@ class HomeLatestPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARA
             with(binding) {
                 this.item = item
                 executePendingBindings()
-                itemPopularPhotoImageview.loadImageWithPalette(item.imageUrl) {
-                    binding.banner.setBackgroundDrawable(it)
+                itemPopularPhotoImageview.loadImageWithPalette(item.imageUrl) { gradientDrawable, _ ->
+                    binding.banner.setBackgroundDrawable(gradientDrawable)
                 }
             }
         }

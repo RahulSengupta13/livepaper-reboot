@@ -89,6 +89,7 @@ dependencies {
     implementation Dependencies.threeTen
     implementation Dependencies.coil
     implementation Dependencies.viewPagerIndicator
+    implementation Dependencies.lottie
 
     // Hilt
     kapt Dependencies.androidxHiltCompiler

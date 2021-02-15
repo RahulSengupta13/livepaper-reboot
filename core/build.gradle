@@ -20,5 +20,6 @@ dependencies {
 
     implementation Dependencies.coil
     implementation Dependencies.palette
+    implementation Dependencies.lottie
     implementation Dependencies.pagingRuntime
 }

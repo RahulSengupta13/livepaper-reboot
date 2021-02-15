@@ -10,6 +10,6 @@ class FastScroller(context: Context): LinearSmoothScroller(context) {
     }
 
     companion object {
-        private const val MS_PER_INCH = 10f
+        private const val MS_PER_INCH = 50f
     }
 }

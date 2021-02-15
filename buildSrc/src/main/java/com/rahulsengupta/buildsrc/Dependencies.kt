@@ -37,6 +37,7 @@ object Versions {
     const val swipeRefresh = "1.2.0-alpha01"
     const val stetho = "1.5.1"
     const val viewPagerIndicator = "1.3"
+    const val lottie = "3.6.1"
 
     //database
     const val room = "2.3.0-beta01"
@@ -87,6 +88,7 @@ object Dependencies {
     const val stetho = "com.facebook.stetho:stetho:${Versions.stetho}"
     const val stethoOkHttp = "com.facebook.stetho:stetho-okhttp3:${Versions.stetho}"
     const val viewPagerIndicator = "com.github.rbro112:Android-Indefinite-Pager-Indicator:${Versions.viewPagerIndicator}"
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
 
     const val roomRuntime =  "androidx.room:room-runtime:${Versions.room}"
     const val pagingRuntime =  "androidx.paging:paging-runtime-ktx:${Versions.paging}"

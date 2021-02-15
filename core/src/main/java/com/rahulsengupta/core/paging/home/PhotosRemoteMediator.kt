@@ -37,11 +37,7 @@ class PhotosRemoteMediator constructor(
                     val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
                     remoteKeys?.nextKey?.minus(1) ?: DEFAULT_PAGE_INDEX
                 }
-                LoadType.PREPEND -> {
-                    val remoteKeys = getRemoteKeyForFirstItem(state) ?: throw InvalidObjectException("Remote key and the prevKey should not be null")
-                    val previousKey = remoteKeys.previousKey ?: return MediatorResult.Success(endOfPaginationReached = true)
-                    previousKey
-                }
+                LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true) // Not supporting prepend for now.
                 LoadType.APPEND -> {
                     val remoteKeys = getRemoteKeyForLastItem(state)
                     val nextKey = remoteKeys?.nextKey ?: throw InvalidObjectException("Remote key should not be null for $loadType")
