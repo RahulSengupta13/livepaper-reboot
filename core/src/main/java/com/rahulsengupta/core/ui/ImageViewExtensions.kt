@@ -30,7 +30,7 @@ fun ImageView.loadImageWithPalette(url: String, block: (GradientDrawable, Int) -
             Palette.from(bitmap).generate {
                 it ?: return@generate
                 Timber.d(it.toString())
-                val darkVibrantColor = it.getDarkVibrantColor(ContextCompat.getColor(context, R.color.dark))
+                val darkVibrantColor = it.getDarkMutedColor(ContextCompat.getColor(context, R.color.dark))
                 val gradientColors = arrayOf(darkVibrantColor, ContextCompat.getColor(context, android.R.color.transparent)).toIntArray()
                 val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, gradientColors)
                 block(gradientDrawable, it.darkMutedSwatch?.bodyTextColor ?: ContextCompat.getColor(context, R.color.light))

@@ -9,22 +9,22 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.rahulsengupta.livepaper.databinding.ItemLatestPhotoSearchBinding
 import com.rahulsengupta.livepaper.home.model.PhotoItem
 
-class SearchPopularPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(DiffCallback) {
+class SearchLatestPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(DiffCallback) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         getItem(position)?.let {
-            (holder as SearchPopularPhotoViewHolder).bind(it)
+            (holder as SearchLatestPhotoViewHolder).bind(it)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemLatestPhotoSearchBinding.inflate(inflater, parent, false)
-        return SearchPopularPhotoViewHolder(binding)
+        return SearchLatestPhotoViewHolder(binding)
     }
 
     //ViewHolder
-    class SearchPopularPhotoViewHolder(val binding: ItemLatestPhotoSearchBinding) :
+    class SearchLatestPhotoViewHolder(val binding: ItemLatestPhotoSearchBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: PhotoItem) {
             binding.run {

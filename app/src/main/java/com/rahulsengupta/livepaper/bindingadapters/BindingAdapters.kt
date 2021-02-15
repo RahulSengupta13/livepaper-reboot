@@ -11,7 +11,9 @@ import com.mikhaellopez.circularimageview.CircularImageView
 @BindingAdapter("loadImage")
 fun loadImage(circularImageView: CircularImageView, imageUrl: String?) {
     imageUrl?.let {
-        circularImageView.load(it)
+        circularImageView.load(it) {
+            crossfade(true)
+        }
     }
 }
 

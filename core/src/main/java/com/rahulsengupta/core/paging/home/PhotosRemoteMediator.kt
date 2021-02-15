@@ -6,6 +6,7 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.rahulsengupta.core.usecase.LoadPhotosUseCase.Companion.ORDER_BY_LATEST
+import com.rahulsengupta.core.usecase.LoadPhotosUseCase.Companion.ORDER_BY_POPULAR
 import com.rahulsengupta.datasource.UnSplashDataSource
 import com.rahulsengupta.model.response.PhotoResponse
 import com.rahulsengupta.persistence.LivePaperDatabase
@@ -45,7 +46,7 @@ class PhotosRemoteMediator constructor(
                 }
             }
 
-            val response = dataSource.getPhotos(page, state.config.pageSize, ORDER_BY_LATEST)
+            val response = dataSource.getPhotos(page, state.config.pageSize, ORDER_BY_POPULAR)
             val photos = response.data ?: return MediatorResult.Success(endOfPaginationReached = true)
             val photoEntities = toLatestPhotoEntities(photos)
             val endOfPaginationReached = photoEntities.isEmpty()

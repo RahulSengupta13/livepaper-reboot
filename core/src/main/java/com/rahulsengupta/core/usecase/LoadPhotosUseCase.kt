@@ -20,11 +20,11 @@ class LoadPhotosUseCase @Inject constructor(
     private val dataSource: UnSplashDataSource
 ) {
 
-    val popularPhotoFlow = Pager(PagingConfig(pageSize = PAGE_SIZE, prefetchDistance = PREFETCH_DISTANCE)) {
-        PhotosPagingSource(dataSource, ORDER_BY_POPULAR)
+    val latestPhotosFlow = Pager(PagingConfig(pageSize = PAGE_SIZE, prefetchDistance = PREFETCH_DISTANCE)) {
+        PhotosPagingSource(dataSource, ORDER_BY_LATEST)
     }.flow
 
-    fun getLatestPhotosStream(): Flow<PagingData<LatestPhotoEntity>> {
+    fun getPopularPhotosFlow(): Flow<PagingData<LatestPhotoEntity>> {
         val pagingSourceFactory = { database.latestPhotosDao().photos() }
         val remoteMediator = PhotosRemoteMediator(database, dataSource)
 

@@ -26,13 +26,14 @@ class HomeViewModel @Inject constructor(
     val viewEffect: LiveData<ViewEffect> = _viewEffect
 
     @ExperimentalPagingApi
-    fun fetchLatestPhotos(): Flow<PagingData<PhotoItem>> {
-        return loadPhotosUseCase.getLatestPhotosStream()
+    fun fetchPopularPhotos(): Flow<PagingData<PhotoItem>> {
+        return loadPhotosUseCase.getPopularPhotosFlow()
             .map { pagingData ->
                 pagingData.map {
                     PhotoItem(
                         id = it.id,
                         imageUrl = it.urls?.regular ?: "",
+                        authorImageUrl = it.user?.image?.medium ?: "",
                         width = it.width,
                         height = it.height
                     )

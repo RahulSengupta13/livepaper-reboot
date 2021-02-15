@@ -40,9 +40,9 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val popularPhotosAdapter = SearchPopularPhotosAdapter()
+        val latestPhotoAdapter = SearchLatestPhotosAdapter()
         with(binding.popularPhotosViewPager) {
-            this.adapter = popularPhotosAdapter
+            this.adapter = latestPhotoAdapter
             (getChildAt(0) as? RecyclerView)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
             offscreenPageLimit = 4
             setPageTransformer(SliderTransformer(4))
@@ -55,8 +55,8 @@ class SearchFragment : Fragment() {
         binding.viewpagerPagerIndicator.attachToViewPager2(binding.popularPhotosViewPager)
 
         lifecycleScope.launch {
-            viewModel.popularPhotoFlow.collectLatest {
-                popularPhotosAdapter.submitData(it)
+            viewModel.latestPhotosFlow.collectLatest {
+                latestPhotoAdapter.submitData(it)
             }
         }
     }

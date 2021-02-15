@@ -11,7 +11,7 @@ import com.rahulsengupta.core.ui.loadImageWithPalette
 import com.rahulsengupta.livepaper.databinding.ItemPopularPhotoHomeBinding
 import com.rahulsengupta.livepaper.home.model.PhotoItem
 
-class HomeLatestPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARATOR) {
+class HomePopularPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARATOR) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         getItem(position)?.let {
@@ -37,8 +37,9 @@ class HomeLatestPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARA
             with(binding) {
                 this.item = item
                 executePendingBindings()
-                itemPopularPhotoImageview.loadImageWithPalette(item.imageUrl) { gradientDrawable, _ ->
+                itemPopularPhotoImageview.loadImageWithPalette(item.imageUrl) { gradientDrawable, textColor ->
                     binding.banner.setBackgroundDrawable(gradientDrawable)
+                    binding.authorImage.borderColor = textColor
                 }
             }
         }

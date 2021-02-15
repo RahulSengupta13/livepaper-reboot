@@ -34,10 +34,10 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var recyclerViewlayoutManager: StaggeredGridLayoutManager
-    private var fetchLatestPhotosJob: Job? = null
+    private var fetchPopularPhotosJob: Job? = null
 
     private val viewModel: HomeViewModel by viewModels()
-    private val latestPhotosAdapter = HomeLatestPhotosAdapter()
+    private val popularPhotosAdapter = HomePopularPhotosAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(inflater)
@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
         with(binding.featurePopularPhotoRecyclerview) {
             layoutManager = recyclerViewlayoutManager
             isNestedScrollingEnabled = true
-            adapter = latestPhotosAdapter
+            adapter = popularPhotosAdapter
 
             addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -85,7 +85,7 @@ class HomeFragment : Fragment() {
         }
 
         lifecycleScope.launch {
-            latestPhotosAdapter.loadStateFlow
+            popularPhotosAdapter.loadStateFlow
                 .distinctUntilChangedBy { it.refresh }
                 .filter { it.refresh is LoadState.NotLoading }
                 .collect {
@@ -103,10 +103,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun refreshLatestPhotos() {
-        fetchLatestPhotosJob?.cancel()
-        fetchLatestPhotosJob = lifecycleScope.launch {
-            viewModel.fetchLatestPhotos().collectLatest {
-                latestPhotosAdapter.submitData(it)
+        fetchPopularPhotosJob?.cancel()
+        fetchPopularPhotosJob = lifecycleScope.launch {
+            viewModel.fetchPopularPhotos().collectLatest {
+                popularPhotosAdapter.submitData(it)
             }
         }
     }

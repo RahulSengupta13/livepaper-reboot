@@ -39,9 +39,25 @@
                 android:id="@+id/banner"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/author_image"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="@dimen/standard_half_margin"
+                android:layout_marginBottom="@dimen/standard_half_margin"
+                android:visibility="gone"
+                app:civ_border="true"
+                app:civ_border_color="@color/red"
+                app:civ_border_width="1dp"
+                app:civ_shadow="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:loadImage="@{item.authorImageUrl}" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>

@@ -41,11 +41,12 @@ class SearchViewModel @Inject constructor(
         }
     }
 
-    val popularPhotoFlow = loadPhotosUseCase.popularPhotoFlow.map { pagingData ->
+    val latestPhotosFlow = loadPhotosUseCase.latestPhotosFlow.map { pagingData ->
         pagingData.map {
             PhotoItem(
                 id = it.id,
                 imageUrl = it.urls?.regular ?: "",
+                authorImageUrl = it.user?.image?.medium ?: "",
                 width = it.width,
                 height = it.height
             )
