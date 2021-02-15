@@ -21,4 +21,8 @@ class UnSplashDataSource @Inject constructor(
     suspend fun getPhotos(page: Int?, pageSize: Int, orderBy: String) = getResult {
         service.getPhotos(page, pageSize, orderBy)
     }
+
+    suspend fun getTopics() = getResult {
+        service.getTopics()
+    }
 }

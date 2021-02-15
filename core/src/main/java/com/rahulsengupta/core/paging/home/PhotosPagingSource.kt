@@ -1,8 +1,7 @@
-package com.rahulsengupta.core.paging
+package com.rahulsengupta.core.paging.home
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.rahulsengupta.core.usecase.LoadPhotosUseCase
 import com.rahulsengupta.datasource.UnSplashDataSource
 import com.rahulsengupta.model.response.PhotoResponse
 

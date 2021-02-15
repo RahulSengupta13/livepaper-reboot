@@ -15,4 +15,10 @@ object DaoModule {
 
     @Provides
     fun provideTrendingCollectionDao(database: LivePaperDatabase) = database.trendingCollectionEntityDao()
+
+    @Provides
+    fun provideLatestPhotosDao(database: LivePaperDatabase) = database.latestPhotosDao()
+
+    @Provides
+    fun provideLatestPhotoRemoteKeyDao(database: LivePaperDatabase) = database.latestPhotoRemoteKeyDao()
 }

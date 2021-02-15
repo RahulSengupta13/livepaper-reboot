@@ -48,4 +48,7 @@ interface UnsplashService {
     suspend fun getWallpaper(
         @Path("id") id: String
     ): Response<Wallpaper>
+
+    @GET("/topics?order_by=featured")
+    suspend fun getTopics(): Response<Void>
 }

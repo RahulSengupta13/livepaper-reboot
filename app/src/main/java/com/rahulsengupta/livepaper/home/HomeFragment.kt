@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
 import com.rahulsengupta.livepaper.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -25,6 +26,7 @@ class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
     private val viewModel: HomeViewModel by viewModels()
+    private var fetchLatestPhotosJob: Job? = null
 
     private val latestPhotosAdapter = HomeLatestPhotosAdapter()
 
@@ -53,9 +55,17 @@ class HomeFragment : Fragment() {
             isNestedScrollingEnabled = true
             adapter = latestPhotosAdapter
         }
+    }
 
-        lifecycleScope.launch {
-            viewModel.popularPhotoFlow.collectLatest {
+    override fun onResume() {
+        super.onResume()
+        refreshLatestPhotos()
+    }
+
+    private fun refreshLatestPhotos() {
+        fetchLatestPhotosJob?.cancel()
+        fetchLatestPhotosJob = lifecycleScope.launch {
+            viewModel.fetchLatestPhotos().collectLatest {
                 latestPhotosAdapter.submitData(it)
             }
         }
