@@ -8,6 +8,7 @@ import androidx.palette.graphics.Palette
 import coil.imageLoader
 import coil.load
 import coil.request.ImageRequest
+import coil.size.ViewSizeResolver
 import com.rahulsengupta.core.R
 import timber.log.Timber
 
@@ -15,6 +16,7 @@ fun ImageView.loadImageWithPalette(url: String, block: (GradientDrawable) -> Uni
     val context = context
     val request = ImageRequest.Builder(context)
         .data(url)
+        .size(ViewSizeResolver(this))
         .target(onSuccess = { drawable ->
             load(drawable) {
                 crossfade(true)
