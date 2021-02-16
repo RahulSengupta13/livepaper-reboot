@@ -11,6 +11,7 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.rahulsengupta.core.ui.FabScrollVisibilityHelper
 import com.rahulsengupta.core.ui.FastScroller
 import com.rahulsengupta.livepaper.databinding.FragmentPhotosBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,24 +56,7 @@ class PhotosFragment: Fragment() {
             layoutManager = recyclerViewlayoutManager
             isNestedScrollingEnabled = true
             adapter = popularPhotosAdapter
-
-            addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    super.onScrolled(recyclerView, dx, dy)
-                    if (dy > 0 && binding.homePopularPhotosFab.visibility == View.VISIBLE) {
-                        binding.homePopularPhotosFab.hide()
-                    } else if (dy < 0 && binding.homePopularPhotosFab.visibility != View.VISIBLE) {
-                        binding.homePopularPhotosFab.show()
-                    }
-                }
-
-                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                    if(newState == RecyclerView.SCROLL_STATE_IDLE && recyclerView.childCount > 0 && recyclerView.getChildAt(0).top == 0) {
-                        binding.homePopularPhotosFab.hide()
-                    }
-                    super.onScrollStateChanged(recyclerView, newState)
-                }
-            })
+            addOnScrollListener(FabScrollVisibilityHelper(binding.homePopularPhotosFab))
         }
 
         viewModel.viewEffect.observe(viewLifecycleOwner) {
