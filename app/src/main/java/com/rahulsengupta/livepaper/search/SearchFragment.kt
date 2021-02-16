@@ -63,10 +63,10 @@ class SearchFragment : Fragment() {
         * */
         val topicsAdapter = SearchTopicsAdapter()
         with(binding.mostViewedRecyclerview) {
-            isNestedScrollingEnabled = true
             adapter = topicsAdapter
             layoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
         }
+
         lifecycleScope.launch {
             viewModel.topicsFlow.collectLatest {
                 topicsAdapter.submitData(it)

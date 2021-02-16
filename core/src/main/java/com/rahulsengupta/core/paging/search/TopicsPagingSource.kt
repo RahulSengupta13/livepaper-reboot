@@ -20,11 +20,16 @@ class TopicsPagingSource(
                 orderBy = orderBy
             )
             val data = response.data ?: return LoadResult.Error(Exception())
+            val nextKey = if(data.isEmpty()) {
+                return LoadResult.Error(Exception())
+            } else {
+                pageToLoad + 1
+            }
 
             LoadResult.Page(
                 data = data,
                 prevKey = null,
-                nextKey = pageToLoad + 1
+                nextKey = nextKey
             )
         } catch (exception: Exception) {
             LoadResult.Error(exception)

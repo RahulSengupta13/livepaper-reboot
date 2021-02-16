@@ -15,7 +15,7 @@ import kotlinx.serialization.json.Json
 
 object DatabaseMeta {
     const val NAME = "livepaper.db"
-    const val VERSION = 1
+    const val VERSION = 2
 }
 
 @TypeConverters(value = [DbTypeConverters::class])

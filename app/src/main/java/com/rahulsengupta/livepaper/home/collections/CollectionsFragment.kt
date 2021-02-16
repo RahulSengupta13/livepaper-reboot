@@ -32,6 +32,7 @@ class CollectionsFragment: Fragment() {
     private lateinit var recyclerViewlayoutManager: StaggeredGridLayoutManager
     private lateinit var binding: FragmentCollectionsBinding
     private var collectionsJob: Job? = null
+    private var hasRefreshed = false
 
     private val viewModel: CollectionsViewModel by viewModels()
     private val collectionsAdapter = CollectionsAdapter()
@@ -77,7 +78,11 @@ class CollectionsFragment: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        refreshCollections()
+        if(!hasRefreshed) {
+            binding.swipeRefresh.isRefreshing = true
+            refreshCollections()
+            hasRefreshed = !hasRefreshed
+        }
     }
 
     private fun refreshCollections() {
