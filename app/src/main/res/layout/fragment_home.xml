@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -15,122 +14,29 @@
         android:layout_height="match_parent"
         android:animateLayoutChanges="true">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:animateLayoutChanges="true">
-
-            <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/home_app_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:animateLayoutChanges="true"
-                android:background="@android:color/transparent">
-
-                <com.google.android.material.appbar.CollapsingToolbarLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:animateLayoutChanges="true"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/standard_margin">
-
-                        <androidx.constraintlayout.widget.Guideline
-                            android:id="@+id/start_guideline"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            app:layout_constraintGuide_begin="@dimen/standard_margin" />
-
-                        <androidx.constraintlayout.widget.Guideline
-                            android:id="@+id/end_guideline"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            app:layout_constraintGuide_end="@dimen/standard_margin" />
-
-                        <View
-                            android:id="@+id/home_search_bar_background"
-                            android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="@dimen/standard_margin"
-                            android:layout_marginTop="@dimen/standard_margin"
-                            android:layout_marginEnd="@dimen/standard_margin"
-                            android:background="@drawable/background_rounded_24dp"
-                            app:layout_constraintEnd_toEndOf="@id/end_guideline"
-                            app:layout_constraintStart_toStartOf="@id/start_guideline"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/home_search_bar_icon"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:layout_marginEnd="@dimen/standard_margin"
-                            app:layout_constraintBottom_toBottomOf="@id/home_search_bar_background"
-                            app:layout_constraintEnd_toEndOf="@id/home_search_bar_background"
-                            app:layout_constraintTop_toTopOf="@id/home_search_bar_background"
-                            app:srcCompat="@drawable/ic_search_active" />
-
-                        <TextView
-                            android:id="@+id/home_search_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/search_title"
-                            android:textAlignment="viewStart"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toBottomOf="@id/home_search_bar_background"
-                            app:layout_constraintEnd_toEndOf="@id/home_search_bar_background"
-                            app:layout_constraintStart_toStartOf="@id/home_search_bar_background"
-                            app:layout_constraintTop_toTopOf="@id/home_search_bar_background" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </com.google.android.material.appbar.CollapsingToolbarLayout>
-            </com.google.android.material.appbar.AppBarLayout>
-
-            <com.rahulsengupta.core.ui.SmartNestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fillViewport="true"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                    android:id="@+id/swipe_refresh"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:refreshListener="@{() -> viewModel.onRefreshRequested()}">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/feature_popular_photo_recyclerview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:itemCount="3"
-                        tools:listitem="@layout/item_popular_photo_home" />
-                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-            </com.rahulsengupta.core.ui.SmartNestedScrollView>
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/home_popular_photos_fab"
-            android:layout_width="wrap_content"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/home_tab_layout"
+            style="@style/Widget.MaterialComponents.TabLayout.Colored"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/standard_margin"
-            android:layout_marginBottom="@dimen/standard_margin"
-            android:backgroundTint="@color/fab_background"
-            android:contentDescription="@null"
-            android:onClick="@{() -> viewModel.onFabClicked()}"
-            android:src="@drawable/carat_arrow_up"
-            android:visibility="gone"
-            app:borderWidth="0dp"
+            android:background="@color/dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorGravity="bottom"
+            app:tabTextAppearance="?attr/textAppearanceBody1"
+            app:tabIndicatorColor="@color/red"
+            app:tabSelectedTextColor="@color/red"
+            app:tabTextColor="@color/white"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/home_viewpager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/red"
-            tools:visibility="visible" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_tab_layout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

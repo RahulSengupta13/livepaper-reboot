@@ -1,4 +1,4 @@
-package com.rahulsengupta.livepaper.home
+package com.rahulsengupta.livepaper.home.photos
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import com.rahulsengupta.core.ui.loadImageWithPalette
 import com.rahulsengupta.livepaper.databinding.ItemPopularPhotoHomeBinding
 import com.rahulsengupta.livepaper.home.model.PhotoItem
 
-class HomePopularPhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARATOR) {
+class PhotosAdapter : PagingDataAdapter<PhotoItem, ViewHolder>(COMPARATOR) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         getItem(position)?.let {
