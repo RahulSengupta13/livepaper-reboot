@@ -156,7 +156,13 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/most_viewed_recyclerview"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_search_most_viewed" />
 
             </com.rahulsengupta.core.ui.SmartNestedScrollView>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>

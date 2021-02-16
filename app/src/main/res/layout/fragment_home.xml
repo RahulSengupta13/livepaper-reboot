@@ -21,7 +21,7 @@
             app:tabTextAppearance="?attr/textAppearanceBody1"
             app:tabIndicatorColor="@color/red"
             app:tabSelectedTextColor="@color/red"
-            app:tabTextColor="@color/white"/>
+            app:tabTextColor="@color/translucent_white"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/home_viewpager"

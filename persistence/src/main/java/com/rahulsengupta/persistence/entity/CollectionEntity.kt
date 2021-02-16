@@ -8,8 +8,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@Entity(tableName = "TrendingCollectionEntity")
-data class TrendingCollectionEntity(
+@Entity(tableName = "CollectionEntity")
+data class CollectionEntity(
     @PrimaryKey
     val id: Int,
     val title: String?,

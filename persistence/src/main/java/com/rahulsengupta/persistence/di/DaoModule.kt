@@ -11,14 +11,14 @@ import dagger.hilt.components.SingletonComponent
 object DaoModule {
 
     @Provides
-    fun provideFeaturedCollectionDao(database: LivePaperDatabase) = database.collectionEntityDao()
-
-    @Provides
-    fun provideTrendingCollectionDao(database: LivePaperDatabase) = database.trendingCollectionEntityDao()
+    fun provideFeaturedCollectionDao(database: LivePaperDatabase) = database.collectionDao()
 
     @Provides
     fun provideLatestPhotosDao(database: LivePaperDatabase) = database.latestPhotosDao()
 
     @Provides
     fun provideLatestPhotoRemoteKeyDao(database: LivePaperDatabase) = database.latestPhotoRemoteKeyDao()
+
+    @Provides
+    fun provideCollectionsRemoteKeyDao(database: LivePaperDatabase) = database.collectionsRemoteKeyDao()
 }

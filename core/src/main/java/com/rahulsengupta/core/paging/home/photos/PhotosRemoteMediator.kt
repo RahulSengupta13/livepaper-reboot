@@ -1,4 +1,4 @@
-package com.rahulsengupta.core.paging.home
+package com.rahulsengupta.core.paging.home.photos
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
@@ -6,7 +6,6 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.rahulsengupta.core.usecase.LoadPhotosUseCase.Companion.ORDER_BY_LATEST
-import com.rahulsengupta.core.usecase.LoadPhotosUseCase.Companion.ORDER_BY_POPULAR
 import com.rahulsengupta.datasource.UnSplashDataSource
 import com.rahulsengupta.model.response.PhotoResponse
 import com.rahulsengupta.persistence.LivePaperDatabase

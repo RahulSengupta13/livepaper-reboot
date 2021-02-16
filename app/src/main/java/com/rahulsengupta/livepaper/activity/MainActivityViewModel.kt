@@ -5,25 +5,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rahulsengupta.core.coroutine.CoroutinesDispatcher
-import com.rahulsengupta.core.usecase.LoadTrendingCollectionsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainActivityViewModel @Inject constructor(
-    loadTrendingCollectionsUseCase: LoadTrendingCollectionsUseCase,
-    coroutineDispatcher: CoroutinesDispatcher
-) : ViewModel() {
+class MainActivityViewModel @Inject constructor() : ViewModel() {
 
     private val _command = MutableLiveData<Command>()
     val command: LiveData<Command>
         get() = _command
 
     init {
-        viewModelScope.launch(coroutineDispatcher.io) {
-            loadTrendingCollectionsUseCase.invoke(1, 10)
-        }
         _command.value = Command.NavigateToIndex(0)
     }
 

@@ -1,7 +1,7 @@
 package com.rahulsengupta.network.service
 
 import com.rahulsengupta.model.response.*
-import com.rahulsengupta.model.response.Collection
+import com.rahulsengupta.model.response.CollectionResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -13,11 +13,11 @@ interface UnsplashService {
         const val BASE_URL = "https://api.unsplash.com/"
     }
 
-    @GET("collections/featured")
+    @GET("collections")
     suspend fun getFeaturedCollections(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): Response<List<Collection>>
+    ): Response<List<CollectionResponse>>
 
     @GET("photos")
     suspend fun getPhotos(

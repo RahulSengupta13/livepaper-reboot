@@ -5,7 +5,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.rahulsengupta.core.paging.search.PhotosPagingSource
-import com.rahulsengupta.core.paging.home.PhotosRemoteMediator
+import com.rahulsengupta.core.paging.home.photos.PhotosRemoteMediator
 import com.rahulsengupta.datasource.UnSplashDataSource
 import com.rahulsengupta.persistence.LivePaperDatabase
 import com.rahulsengupta.persistence.entity.LatestPhotoEntity

@@ -6,7 +6,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Collection(
+data class CollectionResponse(
     val id: Int,
     val title: String?,
     val description: String?,

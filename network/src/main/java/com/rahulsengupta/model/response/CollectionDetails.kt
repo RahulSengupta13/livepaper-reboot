@@ -2,7 +2,6 @@ package com.rahulsengupta.model.response
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import com.rahulsengupta.model.response.Collection.*
 import com.rahulsengupta.model.response.common.CoverPhoto
 import com.rahulsengupta.model.response.common.User
 
