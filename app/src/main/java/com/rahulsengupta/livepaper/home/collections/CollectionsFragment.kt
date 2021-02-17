@@ -76,6 +76,10 @@ class CollectionsFragment: Fragment() {
         }
 
         binding.swipeRefresh.isRefreshing = true
+    }
+
+    override fun onResume() {
+        super.onResume()
         refreshCollections()
     }
 

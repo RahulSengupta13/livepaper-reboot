@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
+import coil.transform.CircleCropTransformation
 import com.rahulsengupta.core.ui.loadImageWithPalette
 import com.rahulsengupta.livepaper.databinding.ItemCollectionHomeBinding
 import com.rahulsengupta.livepaper.home.collections.model.CollectionItem
@@ -31,10 +32,12 @@ class CollectionsAdapter : PagingDataAdapter<CollectionItem, ViewHolder>(COMPARA
 
         fun bind(item: CollectionItem) {
             with(binding) {
-                authorImage.load(item.authorImage)
+                authorImage.load(item.authorImage) {
+                    crossfade(true)
+                    transformations(CircleCropTransformation())
+                }
                 itemPopularPhotoImageview.loadImageWithPalette(item.coverPhoto) { gradientDrawable, textColor ->
                     banner.setBackgroundDrawable(gradientDrawable)
-                    authorImage.borderColor = textColor
                     collectionAuthor.setTextColor(textColor)
                     collectionTitle.setTextColor(textColor)
                     collectionPhotoCount.setTextColor(textColor)
