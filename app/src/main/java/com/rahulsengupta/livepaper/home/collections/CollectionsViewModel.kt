@@ -30,7 +30,7 @@ class CollectionsViewModel @Inject constructor(
         return loadCollectionsUseCase.getCollectionsFlow().map { pagingData ->
             pagingData.map {
                 CollectionItem(
-                    id = it.id,
+                    id = it.id.toInt(),
                     coverPhoto = it.coverPhoto.urls?.regular ?: "",
                     coverPhotoWidth = it.coverPhoto.width,
                     coverPhotoHeight = it.coverPhoto.height,

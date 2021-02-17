@@ -34,11 +34,7 @@ class CollectionsRemoteMediator constructor(
                     val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
                     remoteKeys?.nextKey?.minus(1) ?: DEFAULT_PAGE_INDEX
                 }
-                LoadType.PREPEND -> {
-                    val remoteKeys = getRemoteKeyForFirstItem(state) ?: throw InvalidObjectException("Remote key and the prevKey should not be null")
-                    val previousKey = remoteKeys.previousKey ?: return MediatorResult.Success(endOfPaginationReached = true)
-                    previousKey
-                }
+                LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = false)
                 LoadType.APPEND -> {
                     val remoteKeys = getRemoteKeyForLastItem(state)
                     val nextKey = remoteKeys?.nextKey ?: throw InvalidObjectException("Remote key should not be null for $loadType")
@@ -103,7 +99,7 @@ class CollectionsRemoteMediator constructor(
         private fun toCollectionEntities(list: List<CollectionResponse>): List<CollectionEntity> {
             return list.map {
                 CollectionEntity(
-                    id = it.id,
+                    id = it.id.toString(),
                     title = it.title ?: "",
                     description = it.description,
                     user = User(

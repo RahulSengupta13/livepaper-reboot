@@ -33,7 +33,6 @@ class CollectionsFragment: Fragment() {
     private lateinit var recyclerViewlayoutManager: StaggeredGridLayoutManager
     private lateinit var binding: FragmentCollectionsBinding
     private var collectionsJob: Job? = null
-    private var hasRefreshed = false
 
     private val viewModel: CollectionsViewModel by viewModels()
     private val collectionsAdapter = CollectionsAdapter()
@@ -55,6 +54,7 @@ class CollectionsFragment: Fragment() {
 
         with(binding.collectionsRecyclerview) {
             layoutManager = recyclerViewlayoutManager
+            isNestedScrollingEnabled = true
             adapter = collectionsAdapter
             addOnScrollListener(FabScrollVisibilityHelper(binding.collectionsFab))
         }
@@ -74,15 +74,9 @@ class CollectionsFragment: Fragment() {
                     binding.swipeRefresh.isRefreshing = false
                 }
         }
-    }
 
-    override fun onResume() {
-        super.onResume()
-        if(!hasRefreshed) {
-            binding.swipeRefresh.isRefreshing = true
-            refreshCollections()
-            hasRefreshed = !hasRefreshed
-        }
+        binding.swipeRefresh.isRefreshing = true
+        refreshCollections()
     }
 
     private fun refreshCollections() {

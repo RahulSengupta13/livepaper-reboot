@@ -11,7 +11,7 @@ import kotlinx.serialization.Serializable
 @Entity(tableName = "CollectionEntity")
 data class CollectionEntity(
     @PrimaryKey
-    val id: Int,
+    val id: String,
     val title: String?,
     val description: String?,
     val user: User?,

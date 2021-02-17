@@ -75,10 +75,7 @@ class PhotosFragment: Fragment() {
                 }
         }
 
-        with(binding.swipeRefresh) {
-            isRefreshing = true
-        }
-
+        binding.swipeRefresh.isRefreshing = true
         refreshLatestPhotos()
     }
 

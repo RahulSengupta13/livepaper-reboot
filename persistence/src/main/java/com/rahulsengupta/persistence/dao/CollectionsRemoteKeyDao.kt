@@ -8,7 +8,7 @@ import com.rahulsengupta.persistence.entity.CollectionRemoteKey
 interface CollectionsRemoteKeyDao : BaseDao<CollectionRemoteKey> {
 
     @Query("SELECT * FROM CollectionRemoteKey WHERE id = :id")
-    suspend fun remoteKeysById(id: Int): CollectionRemoteKey?
+    suspend fun remoteKeysById(id: String): CollectionRemoteKey?
 
     @Query("DELETE FROM CollectionRemoteKey")
     suspend fun clearAll()
