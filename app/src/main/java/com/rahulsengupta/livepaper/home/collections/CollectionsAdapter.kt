@@ -7,6 +7,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import coil.load
 import com.rahulsengupta.core.ui.loadImageWithPalette
 import com.rahulsengupta.livepaper.databinding.ItemCollectionHomeBinding
 import com.rahulsengupta.livepaper.home.collections.model.CollectionItem
@@ -27,20 +28,25 @@ class CollectionsAdapter : PagingDataAdapter<CollectionItem, ViewHolder>(COMPARA
 
     //ViewHolders
     class CollectionItemViewHolder(val binding: ItemCollectionHomeBinding) : RecyclerView.ViewHolder(binding.root) {
+
         fun bind(item: CollectionItem) {
+            with(binding) {
+                authorImage.load(item.authorImage)
+                itemPopularPhotoImageview.loadImageWithPalette(item.coverPhoto) { gradientDrawable, textColor ->
+                    banner.setBackgroundDrawable(gradientDrawable)
+                    authorImage.borderColor = textColor
+                    collectionAuthor.setTextColor(textColor)
+                    collectionTitle.setTextColor(textColor)
+                    collectionPhotoCount.setTextColor(textColor)
+                }
+                this.item = item
+                executePendingBindings()
+            }
+
             with(ConstraintSet()) {
                 clone(binding.container)
                 setDimensionRatio(binding.itemPopularPhotoImageview.id, "${item.coverPhotoWidth}:${item.coverPhotoHeight}")
                 applyTo(binding.container)
-            }
-
-            with(binding) {
-                this.item = item
-                executePendingBindings()
-                itemPopularPhotoImageview.loadImageWithPalette(item.coverPhoto) { gradientDrawable, textColor ->
-                    binding.banner.setBackgroundDrawable(gradientDrawable)
-                    binding.authorImage.borderColor = textColor
-                }
             }
         }
     }

@@ -55,7 +55,6 @@ class CollectionsFragment: Fragment() {
 
         with(binding.collectionsRecyclerview) {
             layoutManager = recyclerViewlayoutManager
-            isNestedScrollingEnabled = true
             adapter = collectionsAdapter
             addOnScrollListener(FabScrollVisibilityHelper(binding.collectionsFab))
         }
@@ -73,7 +72,6 @@ class CollectionsFragment: Fragment() {
                 .filter { it.refresh is LoadState.NotLoading }
                 .collect {
                     binding.swipeRefresh.isRefreshing = false
-                    binding.container.isVisible = true
                 }
         }
     }

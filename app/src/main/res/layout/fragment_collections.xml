@@ -14,8 +14,6 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:animateLayoutChanges="true"
-        android:visibility="gone"
         tools:context=".activity.MainActivity">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

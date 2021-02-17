@@ -24,7 +24,7 @@ class LoadCollectionsUseCase @Inject constructor(
         val remoteMediator = CollectionsRemoteMediator(database, dataSource)
 
         return Pager(
-            config = PagingConfig(pageSize = PAGE_SIZE, prefetchDistance = PREFETCH_DISTANCE, enablePlaceholders = true),
+            config = PagingConfig(pageSize = PAGE_SIZE, prefetchDistance = PREFETCH_DISTANCE, enablePlaceholders = false),
             remoteMediator = remoteMediator,
             pagingSourceFactory = pagingSourceFactory
         ).flow

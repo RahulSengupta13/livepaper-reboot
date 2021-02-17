@@ -46,7 +46,7 @@ class CollectionsRemoteMediator constructor(
                 }
             }
 
-            val response = dataSource.getFeatureCollections(page, state.config.pageSize,)
+            val response = dataSource.getFeatureCollections(page, state.config.pageSize)
             val collections = response.data ?: return MediatorResult.Success(endOfPaginationReached = true)
             val collectionEntities = toCollectionEntities(collections)
             val endOfPaginationReached = collectionEntities.isEmpty()

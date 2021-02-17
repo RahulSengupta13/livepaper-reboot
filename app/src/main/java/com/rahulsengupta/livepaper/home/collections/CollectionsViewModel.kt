@@ -33,7 +33,11 @@ class CollectionsViewModel @Inject constructor(
                     id = it.id,
                     coverPhoto = it.coverPhoto.urls?.regular ?: "",
                     coverPhotoWidth = it.coverPhoto.width,
-                    coverPhotoHeight = it.coverPhoto.height
+                    coverPhotoHeight = it.coverPhoto.height,
+                    totalPhotos = it.totalPhotos ?: 0,
+                    authorName = it.user?.name ?: "",
+                    collectionName = it.title ?: "",
+                    authorImage = it.user?.image?.medium ?: ""
                 )
             }
         }.cachedIn(viewModelScope)

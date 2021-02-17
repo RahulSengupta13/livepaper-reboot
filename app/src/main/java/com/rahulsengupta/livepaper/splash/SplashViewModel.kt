@@ -21,7 +21,7 @@ class SplashViewModel @Inject constructor(
 
     init {
         viewModelScope.launch(coroutinesDispatcher.io) {
-            delay(1000)
+            delay(3000)
             _command.postValue(Command.NavigateToMainFragment)
         }
     }
